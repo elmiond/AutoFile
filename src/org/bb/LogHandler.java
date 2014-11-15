@@ -27,12 +27,14 @@ public final class LogHandler
 				writer = new PrintWriter(errorLog, "UTF-8");
 				writer.println(message);
 				writer.close();
+				System.out.println(message);
 			} else
 			{
 				checkFile(eventLog);
 				writer = new PrintWriter(eventLog, "UTF-8");
 				writer.println(message);
 				writer.close();
+				System.out.println(message);
 			}
 		} catch (FileNotFoundException | UnsupportedEncodingException e)
 		{
