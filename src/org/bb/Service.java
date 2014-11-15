@@ -1,4 +1,4 @@
-package src.org.bb;
+package org.bb;
 
 public class Service
 {

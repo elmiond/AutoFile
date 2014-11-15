@@ -1,7 +1,7 @@
 /**
  * 
  */
-package src.org.bb;
+package org.bb;
 
 /**
  * @author Elmiond
