@@ -42,7 +42,7 @@ public class ConfigHandler
 	{
 		ArrayList<WatchedFolder> folders = new ArrayList<WatchedFolder>();
 		
-		LogHandler.out("Reading configuration", 0);
+		LogHandler.out("Reading configuration", LogHandler.EVENT);
 		
 		String[] ss = config.getStringArray("folders/folder/path");
 		for (String s : ss)
@@ -81,13 +81,20 @@ public class ConfigHandler
 	private MatchRule getMatchRule(String name)
 	{
 		String kind = config.getString("matches/match[name = '" + name + "']/kind");
-		System.out.println(kind);
+		LogHandler.out("Matchkind: " + kind, LogHandler.EVENT);
 		switch (kind)
 		{
 		case "regex":
 			String pattern = config.getString("matches/match[name = '" + name
 					+ "']/pattern");
+			LogHandler.out("Pattern: " + pattern, LogHandler.EVENT);
 			return new RegexMatchRule(pattern);
+			
+		case "extension":
+			String extension = config.getString("matches/match[name = '" + name
+					+ "']/extension");
+			LogHandler.out("Extension: " + extension, LogHandler.EVENT);
+			return new ExtensionMatchRule(extension);
 
 		default:
 			return new RegexMatchRule("");

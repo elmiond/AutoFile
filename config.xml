@@ -15,7 +15,7 @@
 			<name>movetodocuments</name>
 			<actions>
 				<action>
-					<kind>copy</kind>
+					<kind>move</kind>
 					<destination>c:/documents/</destination>
 				</action>
 			</actions>
@@ -62,8 +62,8 @@
 		</match>
 		<match>
 			<name>documentsregex</name>
-			<kind>regex</kind>
-			<pattern>.*Document.*</pattern>
+			<kind>extension</kind>
+			<extension>.docx</extension>
 		</match>
 	</matches>
 </config>
