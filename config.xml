@@ -62,8 +62,26 @@
 		</match>
 		<match>
 			<name>documentsregex</name>
-			<kind>extension</kind>
-			<extension>.docx</extension>
+			<kind>and</kind>
+			<matches>
+				<match>
+					<kind>regex</kind>
+					<pattern>.*New.*</pattern>
+				</match>
+				<match>
+					<kind>or</kind>
+					<matches>
+						<match>
+							<kind>extension</kind>
+							<extension>.docx</extension>
+						</match>
+						<match>
+							<kind>extension</kind>
+							<extension>.txt</extension>
+						</match>
+					</matches>
+				</match>
+			</matches>
 		</match>
 	</matches>
 </config>

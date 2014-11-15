@@ -2,9 +2,9 @@ package org.bb;
 
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+
 
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.XMLConfiguration;
@@ -61,7 +61,7 @@ public class ConfigHandler
 
 					System.out.println(mat[i]);
 					System.out.println(act[i]);
-					rules.add(new RuleSet(getMatchRule(mat[i]), getActions(act[i])));
+					rules.add(new RuleSet(getMatchRule("matches/match[name = '" + mat[i] + "']"), getActions(act[i])));
 					i++;
 					if (i >= mat.length || i >= act.length)
 					{
@@ -78,21 +78,46 @@ public class ConfigHandler
 		return folders;
 	}
 
-	private MatchRule getMatchRule(String name)
+	private MatchRule getMatchRule(String xpath)
 	{
-		String kind = config.getString("matches/match[name = '" + name + "']/kind");
+		String kind = config.getString(xpath + "/kind");
+		String[] ss;
+		int i;
+		
 		LogHandler.out("Matchkind: " + kind, LogHandler.EVENT);
 		switch (kind)
 		{
+		case "or":
+			OrRule orRule = new OrRule();
+			LogHandler.out("path: " + xpath, LogHandler.EVENT);
+			ss = config.getStringArray(xpath + "/matches/match/kind");
+			i = 1;
+			for (String s : ss)
+			{
+				orRule.add(getMatchRule(xpath + "/matches/match["+ i +"]"));
+				i++;
+			}
+			return orRule;
+			
+		case "and":
+			AndRule andRule = new AndRule();
+			LogHandler.out("path: " + xpath, LogHandler.EVENT);
+			ss = config.getStringArray(xpath + "/matches/match/kind");
+			i = 1;
+			for (String s : ss)
+			{
+				andRule.add(getMatchRule(xpath + "/matches/match["+ i +"]"));
+				i++;
+			}
+			return andRule;
+			
 		case "regex":
-			String pattern = config.getString("matches/match[name = '" + name
-					+ "']/pattern");
+			String pattern = config.getString(xpath + "/pattern");
 			LogHandler.out("Pattern: " + pattern, LogHandler.EVENT);
 			return new RegexMatchRule(pattern);
 			
 		case "extension":
-			String extension = config.getString("matches/match[name = '" + name
-					+ "']/extension");
+			String extension = config.getString(xpath + "/extension");
 			LogHandler.out("Extension: " + extension, LogHandler.EVENT);
 			return new ExtensionMatchRule(extension);
 

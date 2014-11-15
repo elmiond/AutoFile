@@ -1,1 +1,870 @@
-.docx || c:\test\new text document.txt
+Regex: c:\test\New Text Document.txt
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\New Text Document.txt
+Regex: c:\test\New Text Document.txt
+RegexPattern: .*New.*
+RegexMatch: true
+Extension: c:\test\New Text Document.txt
+Extension: .docx
+ExtensionMatch: false
+AndCollectionMatch: false
+Regex: c:\test\New Text Document.txt
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\New Text Document.txt
+Regex: c:\test\New Text Document.txt
+RegexPattern: .*New.*
+RegexMatch: true
+Extension: c:\test\New Text Document.txt
+Extension: .docx
+ExtensionMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: regex
+Pattern: .*Image.*
+Matchkind: and
+path: matches/match[name = 'documentsregex']
+Matchkind: regex
+Pattern: .*New.*
+Matchkind: or
+path: matches/match[name = 'documentsregex']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Matchkind: and
+path: matches/match[name = 'documentsregex']
+Matchkind: regex
+Pattern: .*New.*
+Matchkind: or
+path: matches/match[name = 'documentsregex']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Regex: c:\test\New Text Document.txt
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\New Text Document.txt
+Regex: c:\test\New Text Document.txt
+RegexPattern: .*New.*
+RegexMatch: true
+Extension: c:\test\New Text Document.txt
+Extension: .docx
+ExtensionMatch: false
+AndCollectionMatch: false
+Regex: c:\test\New Text Document.txt
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\New Text Document.txt
+Regex: c:\test\New Text Document.txt
+RegexPattern: .*New.*
+RegexMatch: true
+Extension: c:\test\New Text Document.txt
+Extension: .docx
+ExtensionMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: regex
+Pattern: .*Image.*
+Matchkind: and
+path: matches/match[name = 'documentsregex']
+Matchkind: regex
+Pattern: .*New.*
+Matchkind: or
+path: matches/match[name = 'documentsregex']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Matchkind: and
+path: matches/match[name = 'documentsregex']
+Matchkind: regex
+Pattern: .*New.*
+Matchkind: or
+path: matches/match[name = 'documentsregex']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\New Microsoft Word Document.docx
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: .*New.*
+RegexMatch: true
+Extension: c:\test\New Microsoft Word Document.docx
+Extension: .docx
+ExtensionMatch: true
+Extension: c:\test\New Microsoft Word Document.docx
+Extension: .txt
+ExtensionMatch: false
+AndCollectionMatch: false
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\New Microsoft Word Document.docx
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: .*New.*
+RegexMatch: true
+Extension: c:\test\New Microsoft Word Document.docx
+Extension: .docx
+ExtensionMatch: true
+Extension: c:\test\New Microsoft Word Document.docx
+Extension: .txt
+ExtensionMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: regex
+Pattern: .*Image.*
+Matchkind: and
+path: matches/match[name = 'documentsregex']
+Matchkind: regex
+Pattern: .*New.*
+Matchkind: or
+path: matches/match[name = 'documentsregex']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Matchkind: and
+path: matches/match[name = 'documentsregex']
+Matchkind: regex
+Pattern: .*New.*
+Matchkind: or
+path: matches/match[name = 'documentsregex']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+====Starting service====
+Reading configuration
+Matchkind: regex
+Pattern: .*Image.*
+Matchkind: and
+path: matches/match[name = 'documentsregex']
+Matchkind: regex
+Pattern: .*New.*
+Matchkind: or
+path: matches/match[name = 'documentsregex']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Matchkind: and
+path: matches/match[name = 'documentsregex']
+Matchkind: regex
+Pattern: .*New.*
+Matchkind: or
+path: matches/match[name = 'documentsregex']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+====Starting service====
+Reading configuration
+Matchkind: regex
+Pattern: .*Image.*
+Matchkind: and
+path: matches/match[name = 'documentsregex']
+Matchkind: regex
+Pattern: .*New.*
+Matchkind: or
+path: matches/match[name = 'documentsregex']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Matchkind: and
+path: matches/match[name = 'documentsregex']
+Matchkind: regex
+Pattern: .*New.*
+Matchkind: or
+path: matches/match[name = 'documentsregex']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Regex: c:\test\New Text Document.txt
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\New Text Document.txt
+class org.bb.RegexMatchRule
+Regex: c:\test\New Text Document.txt
+RegexPattern: .*New.*
+RegexMatch: true
+class org.bb.ExtensionMatchRule
+Extension: c:\test\New Text Document.txt
+Extension: .docx
+ExtensionMatch: false
+AndCollectionMatch: false
+Regex: c:\test\New Text Document.txt
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\New Text Document.txt
+class org.bb.RegexMatchRule
+Regex: c:\test\New Text Document.txt
+RegexPattern: .*New.*
+RegexMatch: true
+class org.bb.ExtensionMatchRule
+Extension: c:\test\New Text Document.txt
+Extension: .docx
+ExtensionMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: regex
+Pattern: .*Image.*
+Matchkind: and
+path: matches/match[name = 'documentsregex']
+Matchkind: regex
+Pattern: .*New.*
+Matchkind: or
+path: matches/match[name = 'documentsregex']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Matchkind: and
+path: matches/match[name = 'documentsregex']
+Matchkind: regex
+Pattern: .*New.*
+Matchkind: or
+path: matches/match[name = 'documentsregex']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\New Microsoft Word Document.docx
+class org.bb.RegexMatchRule
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: .*New.*
+RegexMatch: true
+class org.bb.ExtensionMatchRule
+Extension: c:\test\New Microsoft Word Document.docx
+Extension: .docx
+ExtensionMatch: true
+class org.bb.ExtensionMatchRule
+Extension: c:\test\New Microsoft Word Document.docx
+Extension: .txt
+ExtensionMatch: false
+AndCollectionMatch: false
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\New Microsoft Word Document.docx
+class org.bb.RegexMatchRule
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: .*New.*
+RegexMatch: true
+class org.bb.ExtensionMatchRule
+Extension: c:\test\New Microsoft Word Document.docx
+Extension: .docx
+ExtensionMatch: true
+class org.bb.ExtensionMatchRule
+Extension: c:\test\New Microsoft Word Document.docx
+Extension: .txt
+ExtensionMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: regex
+Pattern: .*Image.*
+Matchkind: and
+path: matches/match[name = 'documentsregex']
+Matchkind: regex
+Pattern: .*New.*
+Matchkind: or
+path: matches/match[name = 'documentsregex']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Matchkind: and
+path: matches/match[name = 'documentsregex']
+Matchkind: regex
+Pattern: .*New.*
+Matchkind: or
+path: matches/match[name = 'documentsregex']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Regex: c:\test\New Text Document.txt
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\New Text Document.txt
+class org.bb.RegexMatchRule
+Regex: c:\test\New Text Document.txt
+RegexPattern: .*New.*
+RegexMatch: true
+class org.bb.ExtensionMatchRule
+Extension: c:\test\New Text Document.txt
+Extension: .docx
+ExtensionMatch: false
+AndCollectionMatch: false
+Regex: c:\test\New Text Document.txt
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\New Text Document.txt
+class org.bb.RegexMatchRule
+Regex: c:\test\New Text Document.txt
+RegexPattern: .*New.*
+RegexMatch: true
+class org.bb.ExtensionMatchRule
+Extension: c:\test\New Text Document.txt
+Extension: .docx
+ExtensionMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: regex
+Pattern: .*Image.*
+Matchkind: and
+path: matches/match[name = 'documentsregex']
+Matchkind: regex
+Pattern: .*New.*
+Matchkind: or
+path: matches/match[name = 'documentsregex']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Matchkind: and
+path: matches/match[name = 'documentsregex']
+Matchkind: regex
+Pattern: .*New.*
+Matchkind: or
+path: matches/match[name = 'documentsregex']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\New Microsoft Word Document.docx
+ISMATCHRULE: true
+ISMATCHRULECOLLECTION: false
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: .*New.*
+RegexMatch: true
+ISMATCHRULE: true
+ISMATCHRULECOLLECTION: true
+ISMATCHRULE: true
+ISMATCHRULECOLLECTION: false
+Extension: c:\test\New Microsoft Word Document.docx
+Extension: .docx
+ExtensionMatch: true
+OrCollectionMatch: true
+AndCollectionMatch: true
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\New Microsoft Word Document.docx
+ISMATCHRULE: true
+ISMATCHRULECOLLECTION: false
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: .*New.*
+RegexMatch: true
+ISMATCHRULE: true
+ISMATCHRULECOLLECTION: true
+ISMATCHRULE: true
+ISMATCHRULECOLLECTION: false
+Extension: c:\test\New Microsoft Word Document.docx
+Extension: .docx
+ExtensionMatch: true
+OrCollectionMatch: true
+AndCollectionMatch: true
+====Starting service====
+Reading configuration
+Matchkind: regex
+Pattern: .*Image.*
+Matchkind: and
+path: matches/match[name = 'documentsregex']
+Matchkind: regex
+Pattern: .*New.*
+Matchkind: or
+path: matches/match[name = 'documentsregex']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Matchkind: and
+path: matches/match[name = 'documentsregex']
+Matchkind: regex
+Pattern: .*New.*
+Matchkind: or
+path: matches/match[name = 'documentsregex']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\New Microsoft Word Document.docx
+ISMATCHRULE: true
+ISMATCHRULECOLLECTION: false
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: .*New.*
+RegexMatch: true
+ISMATCHRULE: true
+ISMATCHRULECOLLECTION: true
+ISMATCHRULE: true
+ISMATCHRULECOLLECTION: false
+Extension: c:\test\New Microsoft Word Document.docx
+Extension: .docx
+ExtensionMatch: true
+OrCollectionMatch: true
+AndCollectionMatch: true
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\New Microsoft Word Document.docx
+ISMATCHRULE: true
+ISMATCHRULECOLLECTION: false
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: .*New.*
+RegexMatch: true
+ISMATCHRULE: true
+ISMATCHRULECOLLECTION: true
+ISMATCHRULE: true
+ISMATCHRULECOLLECTION: false
+Extension: c:\test\New Microsoft Word Document.docx
+Extension: .docx
+ExtensionMatch: true
+OrCollectionMatch: true
+AndCollectionMatch: true
+====Starting service====
+Reading configuration
+Matchkind: regex
+Pattern: .*Image.*
+Matchkind: and
+path: matches/match[name = 'documentsregex']
+Matchkind: regex
+Pattern: .*New.*
+Matchkind: or
+path: matches/match[name = 'documentsregex']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Matchkind: and
+path: matches/match[name = 'documentsregex']
+Matchkind: regex
+Pattern: .*New.*
+Matchkind: or
+path: matches/match[name = 'documentsregex']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\New Microsoft Word Document.docx
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: .*New.*
+RegexMatch: true
+Extension: c:\test\New Microsoft Word Document.docx
+Extension: .docx
+ExtensionMatch: true
+OrCollectionMatch: true
+AndCollectionMatch: true
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\New Microsoft Word Document.docx
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: .*New.*
+RegexMatch: true
+Extension: c:\test\New Microsoft Word Document.docx
+Extension: .docx
+ExtensionMatch: true
+OrCollectionMatch: true
+AndCollectionMatch: true
+Regex: c:\test\New Text Document.txt
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\New Text Document.txt
+Regex: c:\test\New Text Document.txt
+RegexPattern: .*New.*
+RegexMatch: true
+Extension: c:\test\New Text Document.txt
+Extension: .docx
+ExtensionMatch: false
+Extension: c:\test\New Text Document.txt
+Extension: .txt
+ExtensionMatch: true
+OrCollectionMatch: true
+AndCollectionMatch: true
+Regex: c:\test\New Text Document.txt
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\New Text Document.txt
+Regex: c:\test\New Text Document.txt
+RegexPattern: .*New.*
+RegexMatch: true
+Extension: c:\test\New Text Document.txt
+Extension: .docx
+ExtensionMatch: false
+Extension: c:\test\New Text Document.txt
+Extension: .txt
+ExtensionMatch: true
+OrCollectionMatch: true
+AndCollectionMatch: true
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\New Microsoft Word Document.docx
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: .*New.*
+RegexMatch: true
+Extension: c:\test\New Microsoft Word Document.docx
+Extension: .docx
+ExtensionMatch: true
+OrCollectionMatch: true
+AndCollectionMatch: true
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\New Microsoft Word Document.docx
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: .*New.*
+RegexMatch: true
+Extension: c:\test\New Microsoft Word Document.docx
+Extension: .docx
+ExtensionMatch: true
+OrCollectionMatch: true
+AndCollectionMatch: true
+Regex: c:\test\New Text Document.txt
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\New Text Document.txt
+Regex: c:\test\New Text Document.txt
+RegexPattern: .*New.*
+RegexMatch: true
+Extension: c:\test\New Text Document.txt
+Extension: .docx
+ExtensionMatch: false
+Extension: c:\test\New Text Document.txt
+Extension: .txt
+ExtensionMatch: true
+OrCollectionMatch: true
+AndCollectionMatch: true
+Regex: c:\test\New Text Document.txt
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\New Text Document.txt
+Regex: c:\test\New Text Document.txt
+RegexPattern: .*New.*
+RegexMatch: true
+Extension: c:\test\New Text Document.txt
+Extension: .docx
+ExtensionMatch: false
+Extension: c:\test\New Text Document.txt
+Extension: .txt
+ExtensionMatch: true
+OrCollectionMatch: true
+AndCollectionMatch: true
+Regex: c:\test\New Text Document.txt
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\New Text Document.txt
+Regex: c:\test\New Text Document.txt
+RegexPattern: .*New.*
+RegexMatch: true
+Extension: c:\test\New Text Document.txt
+Extension: .docx
+ExtensionMatch: false
+Extension: c:\test\New Text Document.txt
+Extension: .txt
+ExtensionMatch: true
+OrCollectionMatch: true
+AndCollectionMatch: true
+Regex: c:\test\New Text Document.txt
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\New Text Document.txt
+Regex: c:\test\New Text Document.txt
+RegexPattern: .*New.*
+RegexMatch: true
+Extension: c:\test\New Text Document.txt
+Extension: .docx
+ExtensionMatch: false
+Extension: c:\test\New Text Document.txt
+Extension: .txt
+ExtensionMatch: true
+OrCollectionMatch: true
+AndCollectionMatch: true
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\New Microsoft Word Document.docx
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: .*New.*
+RegexMatch: true
+Extension: c:\test\New Microsoft Word Document.docx
+Extension: .docx
+ExtensionMatch: true
+OrCollectionMatch: true
+AndCollectionMatch: true
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\New Microsoft Word Document.docx
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: .*New.*
+RegexMatch: true
+Extension: c:\test\New Microsoft Word Document.docx
+Extension: .docx
+ExtensionMatch: true
+OrCollectionMatch: true
+AndCollectionMatch: true
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\New Microsoft Word Document.docx
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: .*New.*
+RegexMatch: true
+Extension: c:\test\New Microsoft Word Document.docx
+Extension: .docx
+ExtensionMatch: true
+OrCollectionMatch: true
+AndCollectionMatch: true
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\New Microsoft Word Document.docx
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: .*New.*
+RegexMatch: true
+Extension: c:\test\New Microsoft Word Document.docx
+Extension: .docx
+ExtensionMatch: true
+OrCollectionMatch: true
+AndCollectionMatch: true
+Regex: c:\test\New Text Document.txt
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\New Text Document.txt
+Regex: c:\test\New Text Document.txt
+RegexPattern: .*New.*
+RegexMatch: true
+Extension: c:\test\New Text Document.txt
+Extension: .docx
+ExtensionMatch: false
+Extension: c:\test\New Text Document.txt
+Extension: .txt
+ExtensionMatch: true
+OrCollectionMatch: true
+AndCollectionMatch: true
+Regex: c:\test\New Text Document.txt
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\New Text Document.txt
+Regex: c:\test\New Text Document.txt
+RegexPattern: .*New.*
+RegexMatch: true
+Extension: c:\test\New Text Document.txt
+Extension: .docx
+ExtensionMatch: false
+Extension: c:\test\New Text Document.txt
+Extension: .txt
+ExtensionMatch: true
+OrCollectionMatch: true
+AndCollectionMatch: true
+====Starting service====
+Reading configuration
+Matchkind: regex
+Pattern: .*Image.*
+Matchkind: and
+path: matches/match[name = 'documentsregex']
+Matchkind: regex
+Pattern: .*New.*
+Matchkind: or
+path: matches/match[name = 'documentsregex']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Matchkind: and
+path: matches/match[name = 'documentsregex']
+Matchkind: regex
+Pattern: .*New.*
+Matchkind: or
+path: matches/match[name = 'documentsregex']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Regex: c:\test\Microsoft Word Document.docx
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\Microsoft Word Document.docx
+Regex: c:\test\Microsoft Word Document.docx
+RegexPattern: .*New.*
+RegexMatch: false
+AndCollectionMatch: false
+Regex: c:\test\Microsoft Word Document.docx
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\Microsoft Word Document.docx
+Regex: c:\test\Microsoft Word Document.docx
+RegexPattern: .*New.*
+RegexMatch: false
+AndCollectionMatch: false
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\New Microsoft Word Document.docx
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: .*New.*
+RegexMatch: true
+Extension: c:\test\New Microsoft Word Document.docx
+Extension: .docx
+ExtensionMatch: true
+OrCollectionMatch: true
+AndCollectionMatch: true
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\New Microsoft Word Document.docx
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: .*New.*
+RegexMatch: true
+Extension: c:\test\New Microsoft Word Document.docx
+Extension: .docx
+ExtensionMatch: true
+OrCollectionMatch: true
+AndCollectionMatch: true
+Regex: c:\test\New Text Document.txt
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\New Text Document.txt
+Regex: c:\test\New Text Document.txt
+RegexPattern: .*New.*
+RegexMatch: true
+Extension: c:\test\New Text Document.txt
+Extension: .docx
+ExtensionMatch: false
+Extension: c:\test\New Text Document.txt
+Extension: .txt
+ExtensionMatch: true
+OrCollectionMatch: true
+AndCollectionMatch: true
+Regex: c:\test\New Text Document.txt
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\New Text Document.txt
+Regex: c:\test\New Text Document.txt
+RegexPattern: .*New.*
+RegexMatch: true
+Extension: c:\test\New Text Document.txt
+Extension: .docx
+ExtensionMatch: false
+Extension: c:\test\New Text Document.txt
+Extension: .txt
+ExtensionMatch: true
+OrCollectionMatch: true
+AndCollectionMatch: true
+Regex: c:\test\Text Document.txt
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\Text Document.txt
+Regex: c:\test\Text Document.txt
+RegexPattern: .*New.*
+RegexMatch: false
+AndCollectionMatch: false
+Regex: c:\test\Text Document.txt
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\Text Document.txt
+Regex: c:\test\Text Document.txt
+RegexPattern: .*New.*
+RegexMatch: false
+AndCollectionMatch: false
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: .*Image.*
+RegexMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: .*New.*
+RegexMatch: true
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .docx
+ExtensionMatch: false
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .txt
+ExtensionMatch: false
+OrCollectionMatch: false
+AndCollectionMatch: false
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: .*Image.*
+RegexMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: .*New.*
+RegexMatch: true
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .docx
+ExtensionMatch: false
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .txt
+ExtensionMatch: false
+OrCollectionMatch: false
+AndCollectionMatch: false

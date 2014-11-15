@@ -2,28 +2,39 @@ package org.bb;
 
 import java.nio.file.Path;
 
-public class OrRule implements MatchRuleCollection
+public class OrRule extends MatchRuleCollection
 {
 
 	public boolean isMatch(Path filePath)
 	{
 		for (MatchRule matchRule : matchRules)
 		{
-			if (matchRule.isMatch(filePath))
+			//LogHandler.out("ISMATCHRULE: "+((Boolean)(matchRule instanceof MatchRule)).toString(), LogHandler.EVENT);
+			//LogHandler.out("ISMATCHRULECOLLECTION: "+((Boolean)(matchRule instanceof MatchRuleCollection)).toString(), LogHandler.EVENT);
+			if (matchRule instanceof MatchRuleCollection)
 			{
-				return true;
+				MatchRuleCollection matchRuleCollection = (MatchRuleCollection)matchRule;
+				if (matchRuleCollection.isMatch(filePath))
+				{
+					LogHandler.out("OrCollectionMatch: true", LogHandler.EVENT);
+					return true;
+				}
+			}
+			else
+			{
+				if (matchRule.isMatch(filePath))
+				{
+					LogHandler.out("OrCollectionMatch: true", LogHandler.EVENT);
+					return true;
+				}
 			}
 		}
+		LogHandler.out("OrCollectionMatch: false", LogHandler.EVENT);
 		return false;
 	}
 	
 	public void add(MatchRule matchRule)
 	{
 		matchRules.add(matchRule);
-	}
-
-	public void remove(int index)
-	{
-		matchRules.remove(index);
 	}
 }
