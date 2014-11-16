@@ -4,9 +4,15 @@ import java.nio.file.Path;
 
 public class OrRule extends MatchRuleCollection
 {
-
+	public OrRule()
+	{
+		super();
+		LogHandler.out("Add | OrMatchRuleCollection", LogHandler.INFO);
+		LogHandler.out("====OrMatchRuleCollection Start====", LogHandler.INFO);
+	}
 	public boolean isMatch(Path filePath)
 	{
+		LogHandler.out("====OrCollectionMatch====", LogHandler.EVENT);
 		for (MatchRule matchRule : matchRules)
 		{
 			//LogHandler.out("ISMATCHRULE: "+((Boolean)(matchRule instanceof MatchRule)).toString(), LogHandler.EVENT);
@@ -16,7 +22,7 @@ public class OrRule extends MatchRuleCollection
 				MatchRuleCollection matchRuleCollection = (MatchRuleCollection)matchRule;
 				if (matchRuleCollection.isMatch(filePath))
 				{
-					LogHandler.out("OrCollectionMatch: true", LogHandler.EVENT);
+					LogHandler.out("====OrCollectionMatch | Matched? YES====", LogHandler.EVENT);
 					return true;
 				}
 			}
@@ -24,12 +30,12 @@ public class OrRule extends MatchRuleCollection
 			{
 				if (matchRule.isMatch(filePath))
 				{
-					LogHandler.out("OrCollectionMatch: true", LogHandler.EVENT);
+					LogHandler.out("====OrCollectionMatch | Matched? YES====", LogHandler.EVENT);
 					return true;
 				}
 			}
 		}
-		LogHandler.out("OrCollectionMatch: false", LogHandler.EVENT);
+		LogHandler.out("====OrCollectionMatch | Matched? NO====", LogHandler.EVENT);
 		return false;
 	}
 	

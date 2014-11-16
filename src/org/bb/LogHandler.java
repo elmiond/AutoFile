@@ -9,12 +9,13 @@ import java.nio.file.Paths;
 
 public final class LogHandler
 {
-	static final int EVENT = 0;
-	static final int ERROR = 1;
-	static final int WARNING = 2;
+	public static final int EVENT = 0;
+	public static final int ERROR = 1;
+	public static final int WARNING = 2;
+	public static final int INFO = 3;
 
-	static final String eventLog = "events.log";
-	static final String errorLog = "errors.log";
+	private static final String eventLog = "events.log";
+	private static final String errorLog = "errors.log";
 
 	public static void out(String message, int kind)
 	{
@@ -24,16 +25,34 @@ public final class LogHandler
 			if (kind > 0)
 			{
 				checkFile(errorLog);
-				//writer = new PrintWriter(errorLog, "UTF-8");
-				writer = new PrintWriter(new BufferedWriter(new FileWriter(errorLog, true)));
+				switch (kind)
+				{
+				case 1:
+					message = "ERROR   | " + message;
+					break;
+					
+				case 2:
+					message = "WARNING | " + message;
+					break;
+					
+				case 3:
+					message = "INFO    | " + message;
+					break;
+
+				default:
+					break;
+				}
+
+				writer = new PrintWriter(new BufferedWriter(new FileWriter(errorLog,
+						true)));
 				writer.println(message);
 				writer.close();
 				System.out.println(message);
 			} else
 			{
 				checkFile(eventLog);
-				//writer = new PrintWriter(eventLog, "UTF-8");
-				writer = new PrintWriter(new BufferedWriter(new FileWriter(eventLog, true)));
+				writer = new PrintWriter(new BufferedWriter(new FileWriter(eventLog,
+						true)));
 				writer.println(message);
 				writer.close();
 				System.out.println(message);
@@ -52,11 +71,12 @@ public final class LogHandler
 		{
 			try
 			{
-				System.out.println("Creating " + file);
+				//System.out.println("Creating " + file);
 				Files.createFile(Paths.get(file));
+				LogHandler.out(String.format("Creating: %s", file), LogHandler.INFO);
 			} catch (IOException e)
 			{
-				// TODO Auto-generated catch block
+				LogHandler.out(String.format("Creating: %s", file), LogHandler.ERROR);
 				e.printStackTrace();
 			}
 		}

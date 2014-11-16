@@ -8,17 +8,18 @@ public class ExtensionMatchRule implements MatchRule
 
 	public ExtensionMatchRule(String extension)
 	{
-		LogHandler.out(extension, LogHandler.EVENT);
 		this.extension = extension;
+		LogHandler.out(
+				String.format("Add | ExtensionMatchRule | Extension: %s", extension),
+				LogHandler.INFO);
 	}
 
 	public boolean isMatch(Path filePath)
 	{
-		LogHandler.out("Extension: " + filePath, LogHandler.EVENT);
-		LogHandler.out("Extension: " + extension, LogHandler.EVENT);
 		LogHandler.out(
-				"ExtensionMatch: " + filePath.toString().toLowerCase().endsWith(extension),
-				LogHandler.EVENT);
+				String.format("ExtensionMatch | %s | Extension[%s] | Matches? %s",
+						filePath, extension, ((filePath.toString().toLowerCase()
+								.endsWith(extension)) ? "YES" : "NO")), LogHandler.EVENT);
 		return filePath.toString().toLowerCase().endsWith(extension);
 	}
 

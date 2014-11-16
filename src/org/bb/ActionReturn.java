@@ -8,7 +8,7 @@ public class ActionReturn
 	public final boolean wasSuccess;
 	
 
-	public ActionReturn(String action, Path newFilePath, boolean wasSuccess)
+	public ActionReturn(Path newFilePath, boolean wasSuccess)
 	{
 		this.newFilePath = newFilePath;
 		this.wasSuccess = wasSuccess;

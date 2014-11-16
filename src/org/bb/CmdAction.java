@@ -13,6 +13,7 @@ public class CmdAction implements Action
 	{
 		super();
 		this.cmd = command;
+		LogHandler.out(String.format("Add | CommandAction | Command: %s", command), LogHandler.INFO);
 	}
 	
 	@Override
@@ -30,18 +31,24 @@ public class CmdAction implements Action
 			BufferedReader in = new BufferedReader(new InputStreamReader(
 					p.getInputStream()));
 			String inputLine;
+			LogHandler.out("====Output Start====", LogHandler.INFO);
 			while ((inputLine = in.readLine()) != null)
 			{
-				System.out.println(inputLine);
+				//System.out.println(inputLine);
+				LogHandler.out(inputLine, LogHandler.INFO);
 			}
 			in.close();
+			LogHandler.out("====Output End====", LogHandler.INFO);
 		} catch (IOException e)
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return new ActionReturn("", filePath, false);
+			LogHandler.out("CommandAction | Error", LogHandler.EVENT);
+			LogHandler.out("CommandAction | Error", LogHandler.ERROR);
+			return new ActionReturn(filePath, false);
 		}
-		return new ActionReturn("", filePath, true);
+		LogHandler.out("CommandAction | Success", LogHandler.EVENT);
+		return new ActionReturn(filePath, true);
 	}
 
 }

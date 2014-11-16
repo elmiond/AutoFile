@@ -6,6 +6,9 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 
 
+
+
+
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.XMLConfiguration;
 import org.apache.commons.configuration.tree.xpath.XPathExpressionEngine;
@@ -42,7 +45,7 @@ public class ConfigHandler
 	{
 		ArrayList<WatchedFolder> folders = new ArrayList<WatchedFolder>();
 		
-		LogHandler.out("Reading configuration", LogHandler.EVENT);
+		LogHandler.out("====Reading configuration====", LogHandler.INFO);
 		
 		String[] ss = config.getStringArray("folders/folder/path");
 		for (String s : ss)
@@ -59,8 +62,8 @@ public class ConfigHandler
 				while (run)
 				{
 
-					System.out.println(mat[i]);
-					System.out.println(act[i]);
+					//System.out.println(mat[i]);
+					//System.out.println(act[i]);
 					rules.add(new RuleSet(getMatchRule("matches/match[name = '" + mat[i] + "']"), getActions(act[i])));
 					i++;
 					if (i >= mat.length || i >= act.length)
@@ -72,9 +75,11 @@ public class ConfigHandler
 				folders.add(new WatchedFolder(Paths.get(s), rules));
 			} else
 			{
-				System.out.format("Could not find folder: %s\n", s);
+				LogHandler.out(String.format("Could not find folder: %s\n", s), LogHandler.WARNING);
+				//System.out.format("Could not find folder: %s\n", s);
 			}
 		}
+		LogHandler.out("====Configuration loaded====", LogHandler.INFO);
 		return folders;
 	}
 
@@ -84,12 +89,12 @@ public class ConfigHandler
 		String[] ss;
 		int i;
 		
-		LogHandler.out("Matchkind: " + kind, LogHandler.EVENT);
+		//LogHandler.out("Matchkind: " + kind, LogHandler.EVENT);
 		switch (kind)
 		{
 		case "or":
 			OrRule orRule = new OrRule();
-			LogHandler.out("path: " + xpath, LogHandler.EVENT);
+			//LogHandler.out("path: " + xpath, LogHandler.EVENT);
 			ss = config.getStringArray(xpath + "/matches/match/kind");
 			i = 1;
 			for (String s : ss)
@@ -97,11 +102,12 @@ public class ConfigHandler
 				orRule.add(getMatchRule(xpath + "/matches/match["+ i +"]"));
 				i++;
 			}
+			LogHandler.out("====OrMatchRuleCollection End====", LogHandler.INFO);
 			return orRule;
 			
 		case "and":
 			AndRule andRule = new AndRule();
-			LogHandler.out("path: " + xpath, LogHandler.EVENT);
+			//LogHandler.out("path: " + xpath, LogHandler.EVENT);
 			ss = config.getStringArray(xpath + "/matches/match/kind");
 			i = 1;
 			for (String s : ss)
@@ -109,16 +115,16 @@ public class ConfigHandler
 				andRule.add(getMatchRule(xpath + "/matches/match["+ i +"]"));
 				i++;
 			}
+			LogHandler.out("====AndMatchRuleCollection End====", LogHandler.INFO);
 			return andRule;
 			
 		case "regex":
 			String pattern = config.getString(xpath + "/pattern");
-			LogHandler.out("Pattern: " + pattern, LogHandler.EVENT);
+			//LogHandler.out("Pattern: " + pattern, LogHandler.EVENT);
 			return new RegexMatchRule(pattern);
 			
 		case "extension":
 			String extension = config.getString(xpath + "/extension");
-			LogHandler.out("Extension: " + extension, LogHandler.EVENT);
 			return new ExtensionMatchRule(extension);
 
 		default:
@@ -136,7 +142,7 @@ public class ConfigHandler
 		int i = 1;
 		for (String kind : kinds)
 		{
-			System.out.println(kind);
+			//System.out.println(kind);
 			al.add(getAction(name, i, kind));
 			i++;
 		}

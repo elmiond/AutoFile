@@ -12,12 +12,13 @@ public class CopyAction implements Action
 	{
 		super();
 		this.destination = destination;
+		LogHandler.out(String.format("Add | CopyAction | Destination: %s", destination), LogHandler.INFO);
 	}
 
 	public ActionReturn doWork(Path filePath)
 	{
 		Path newFilePath = destination.resolve(filePath.getFileName());
-		System.out.println(newFilePath);
+		// System.out.println(newFilePath);
 		try
 		{
 			int i = 0;
@@ -32,13 +33,15 @@ public class CopyAction implements Action
 			}
 			if (!Files.notExists(newFilePath))
 			{
-				try {
+				try
+				{
 					Files.createDirectory(newFilePath);
-				} catch (Exception e) {
+				} catch (Exception e)
+				{
 					// TODO: handle exception
 				}
 			}
-			
+
 			i = 1;
 			while (newFilePath.toFile().exists())
 			{
@@ -48,13 +51,14 @@ public class CopyAction implements Action
 						+ ")" + name.substring(index));
 				i++;
 			}
-			
+
 			Files.copy(filePath, newFilePath);
-			return new ActionReturn("copy", newFilePath, true);
-			
+			LogHandler.out(String.format("CopyAction | Successfully copied: %s to: %s", filePath, newFilePath), LogHandler.EVENT);
+			return new ActionReturn(newFilePath, true);
 		} catch (IOException | InterruptedException e)
 		{
-			return new ActionReturn("copy", filePath, false);
+			LogHandler.out(String.format("CopyAction | Couldn't copy: %s to: %s", filePath, newFilePath), LogHandler.ERROR);
+			return new ActionReturn(filePath, false);
 		}
 	}
 }

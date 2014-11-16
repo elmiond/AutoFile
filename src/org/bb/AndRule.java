@@ -4,10 +4,15 @@ import java.nio.file.Path;
 
 public class AndRule extends MatchRuleCollection
 {
-
+	public AndRule()
+	{
+		super();
+		LogHandler.out("Add | AndMatchRuleCollection", LogHandler.INFO);
+		LogHandler.out("====AndMatchRuleCollection Start====", LogHandler.INFO);
+	}
 	public boolean isMatch(Path filePath)
 	{
-		LogHandler.out("AndCollection: " + filePath, LogHandler.EVENT);
+		LogHandler.out("====AndCollectionMatch====", LogHandler.EVENT);
 		for (MatchRule matchRule : matchRules)
 		{
 			//LogHandler.out("ISMATCHRULE: "+((Boolean)(matchRule instanceof MatchRule)).toString(), LogHandler.EVENT);
@@ -17,7 +22,7 @@ public class AndRule extends MatchRuleCollection
 				MatchRuleCollection matchRuleCollection = (MatchRuleCollection)matchRule;
 				if (!matchRuleCollection.isMatch(filePath))
 				{
-					LogHandler.out("AndCollectionMatch: false", LogHandler.EVENT);
+					LogHandler.out("====AndCollectionMatch | Matched? NO====", LogHandler.EVENT);
 					return false;
 				}
 			}
@@ -25,12 +30,12 @@ public class AndRule extends MatchRuleCollection
 			{
 				if (!matchRule.isMatch(filePath))
 				{
-					LogHandler.out("AndCollectionMatch: false", LogHandler.EVENT);
+					LogHandler.out("====AndCollectionMatch | Matched? NO====", LogHandler.EVENT);
 					return false;
 				}
 			}
 		}
-		LogHandler.out("AndCollectionMatch: true", LogHandler.EVENT);
+		LogHandler.out("====AndCollectionMatch | Matched? YES====", LogHandler.EVENT);
 		return true;
 	}
 

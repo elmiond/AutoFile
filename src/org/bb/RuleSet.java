@@ -24,7 +24,6 @@ public class RuleSet
 				ActionReturn actionreturn = a.doWork(path);
 				if (actionreturn.wasSuccess)
 				{
-					System.out.println("Success, new path: " + actionreturn.newFilePath);
 					path = actionreturn.newFilePath;
 				}
 				else

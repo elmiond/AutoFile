@@ -12,12 +12,13 @@ public class MoveAction implements Action
 	{
 		super();
 		this.destination = destination;
+		LogHandler.out(String.format("Add | MoveAction | Destination: %s",destination), LogHandler.INFO);
 	}
 
 	public ActionReturn doWork(Path filePath)
 	{
 		Path newFilePath = destination.resolve(filePath.getFileName());
-		System.out.println(newFilePath);
+		//System.out.println(newFilePath);
 		try
 		{
 			int i = 0;
@@ -42,10 +43,12 @@ public class MoveAction implements Action
 			}
 
 			Files.move(filePath, newFilePath);
-			return new ActionReturn("move", newFilePath, true);
+			LogHandler.out(String.format("MoveAction | Successfully moved: %s to: %s", filePath, newFilePath), LogHandler.EVENT);
+			return new ActionReturn(newFilePath, true);
 		} catch (IOException | InterruptedException e)
 		{
-			return new ActionReturn("move", filePath, false);
+			LogHandler.out(String.format("MoveAction | Couldn't move: %s to: %s", filePath, newFilePath), LogHandler.ERROR);
+			return new ActionReturn(filePath, false);
 		}
 	}
 }

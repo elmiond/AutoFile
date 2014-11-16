@@ -5,17 +5,21 @@ import java.nio.file.Path;
 public class RegexMatchRule implements MatchRule
 {
 	public String pattern = "";
-	
+
 	public RegexMatchRule(String pattern)
 	{
 		this.pattern = pattern;
+		LogHandler.out(
+				String.format("Add | RegexMatchRule | Pattern: %s", pattern),
+				LogHandler.INFO);
 	}
-	
+
 	public boolean isMatch(Path filePath)
 	{
-		LogHandler.out("Regex: " + filePath, LogHandler.EVENT);
-		LogHandler.out("RegexPattern: " + pattern, LogHandler.EVENT);
-		LogHandler.out("RegexMatch: " +  filePath.getFileName().toString().matches(pattern), LogHandler.EVENT);
+		LogHandler.out(String.format("RegexMatch | %s | Pattern[%s] | Matches? %s",
+				filePath, pattern,
+				((filePath.getFileName().toString().matches(pattern)) ? "YES" : "NO")),
+				LogHandler.EVENT);
 		return filePath.getFileName().toString().matches(pattern);
 	}
 

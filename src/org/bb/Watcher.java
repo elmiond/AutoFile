@@ -25,6 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.configuration.ConfigurationException;
+import org.apache.commons.logging.Log;
 
 /**
  * @author Elmiond
@@ -36,7 +37,6 @@ public class Watcher implements Runnable
 	private final WatchService watcher;
 	private Map<WatchKey, WatchedFolder> watchedfolders = new HashMap<WatchKey, WatchedFolder>();
 	private final Path config = Paths.get("config.xml");
-	//private ConfigHandler ch = new ConfigHandler();
 
 	@SuppressWarnings("unchecked")
 	static <T> WatchEvent<T> cast(WatchEvent<?> event)
@@ -47,19 +47,21 @@ public class Watcher implements Runnable
 	/**
 	 * Register the given directory with the WatchService
 	 */
-	private void register(Path dir, ArrayList<RuleSet> ruleSets) throws IOException
+	private void register(Path dir, ArrayList<RuleSet> ruleSets)
+			throws IOException
 	{
 		WatchKey key = dir.register(watcher, ENTRY_CREATE, ENTRY_DELETE,
 				ENTRY_MODIFY);
 		if (this.watchedfolders.get(key) == null)
 		{
-			System.out.format("register: %s\n", dir);
+			LogHandler.out(String.format("Registered folder: %s", dir), LogHandler.INFO);
 		} else
 		{
 			Path prev = this.watchedfolders.get(key).folderPath;
 			if (!dir.equals(prev))
 			{
-				System.out.format("update: %s -> %s\n", prev, dir);
+				LogHandler.out(String.format("Updated folder: %s -> %s", prev, dir),
+						LogHandler.INFO);
 			}
 		}
 		this.watchedfolders.put(key, new WatchedFolder(dir, ruleSets));
@@ -97,10 +99,10 @@ public class Watcher implements Runnable
 	 */
 	public void run()
 	{
-		LogHandler.out("====Starting service====", 0);
-		
+		LogHandler.out("====Starting service====", LogHandler.INFO);
+
 		loadConfig();
-		
+
 		while (true)
 		{
 
@@ -116,7 +118,8 @@ public class Watcher implements Runnable
 			WatchedFolder watchedfolder = this.watchedfolders.get(key);
 			if (watchedfolder == null || watchedfolder.folderPath == null)
 			{
-				System.err.println("WatchKey not recognized!!");
+				//System.err.println("WatchKey not recognized!!");
+				LogHandler.out("WatchKey not recognized!!", LogHandler.WARNING);
 				continue;
 			}
 
@@ -136,7 +139,8 @@ public class Watcher implements Runnable
 				Path child = watchedfolder.folderPath.resolve(name);
 
 				// print out event
-				System.out.format("%s: %s\n", event.kind().name(), child);
+				//System.out.format("%s: %s\n", event.kind().name(), child);
+				//LogHandler.out(String.format("%s: %s\n", event.kind().name(), child), LogHandler.WARNING);
 
 				// if directory is created, and watching recursively, then
 				// register it and its sub-directories
@@ -147,7 +151,8 @@ public class Watcher implements Runnable
 					// file
 					if (child.getFileName().toString().equals("config.xml"))
 					{
-						System.out.println("config changed");
+						//System.out.println("====config changed====");
+						LogHandler.out("====Configuration changed====", LogHandler.INFO);
 						clearWatchlist();
 						try
 						{
@@ -161,7 +166,6 @@ public class Watcher implements Runnable
 					}
 				} else if (!child.getFileName().toString().startsWith("~"))
 				{
-
 					if (kind == ENTRY_CREATE)
 					{
 						try
