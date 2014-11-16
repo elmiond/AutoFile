@@ -156,6 +156,10 @@ public class ConfigHandler
 			return new CopyAction(Paths.get(config
 					.getString("actionsets/actionset[name = '" + name
 							+ "']/actions/action[" + index + "]/destination")));
+			
+		case "cmd":
+			//return new CmdAction("cmd /C C:\\test\\tt.bat \"AUTOFILE_FILENAME\"");
+			return new CmdAction(config.getString("actionsets/actionset[name = '" + name + "']/actions/action[" + index + "]/command"));
 
 		default:
 			return new MoveAction(Paths.get(""));

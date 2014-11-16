@@ -9,13 +9,17 @@
 					<kind>move</kind>
 					<destination>c:/images/</destination>
 				</action>
+				<action>
+					<kind>cmd</kind>
+					<command>cmd /C C:\test\tt.bat "AUTOFILE_FILENAME"</command>
+				</action>
 			</actions>
 		</actionset>
 		<actionset>
-			<name>movetodocuments</name>
+			<name>copytodocuments</name>
 			<actions>
 				<action>
-					<kind>move</kind>
+					<kind>copy</kind>
 					<destination>c:/documents/</destination>
 				</action>
 			</actions>
@@ -26,6 +30,10 @@
 				<action>
 					<kind>move</kind>
 					<destination>z:/skole/</destination>
+				</action>
+				<action>
+					<kind>copy</kind>
+					<destination>c:/documents/</destination>
 				</action>
 			</actions>
 		</actionset>
@@ -39,16 +47,7 @@
 					<actionsetname>movetoimages</actionsetname>
 				</ruleset>
 				<ruleset>
-					<matchsetname>documentsregex</matchsetname>
-					<actionsetname>movetodocuments</actionsetname>
-				</ruleset>
-			</rulesets>
-		</folder>
-		<folder>
-			<path>//192.168.40.40/home/moretest/</path>
-			<rulesets>
-				<ruleset>
-					<matchsetname>documentsregex</matchsetname>
+					<matchsetname>schooldocuments</matchsetname>
 					<actionsetname>movetoskole</actionsetname>
 				</ruleset>
 			</rulesets>
@@ -57,16 +56,16 @@
 	<matches>
 		<match>
 			<name>imagesregex</name>
-			<kind>regex</kind>
-			<pattern>.*Image.*</pattern>
+			<kind>extension</kind>
+			<extension>.bmp</extension>
 		</match>
 		<match>
-			<name>documentsregex</name>
+			<name>schooldocuments</name>
 			<kind>and</kind>
 			<matches>
 				<match>
 					<kind>regex</kind>
-					<pattern>.*New.*</pattern>
+					<pattern>^Skole.*</pattern>
 				</match>
 				<match>
 					<kind>or</kind>

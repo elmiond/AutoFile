@@ -868,3 +868,2324 @@ Extension: .txt
 ExtensionMatch: false
 OrCollectionMatch: false
 AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: regex
+Pattern: .*Image.*
+Matchkind: and
+path: matches/match[name = 'documentsregex']
+Matchkind: regex
+Pattern: .*New.*
+Matchkind: or
+path: matches/match[name = 'documentsregex']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Matchkind: and
+path: matches/match[name = 'documentsregex']
+Matchkind: regex
+Pattern: .*New.*
+Matchkind: or
+path: matches/match[name = 'documentsregex']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Reading configuration
+Matchkind: regex
+Pattern: .*Image.*
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Reading configuration
+Matchkind: regex
+Pattern: .*Image.*
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\New Microsoft Word Document.docx
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Regex: c:\test\Skole test.docx
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\Skole test.docx
+Regex: c:\test\Skole test.docx
+RegexPattern: ^Skole.*
+RegexMatch: true
+Extension: c:\test\Skole test.docx
+Extension: .docx
+ExtensionMatch: true
+OrCollectionMatch: true
+AndCollectionMatch: true
+Reading configuration
+Matchkind: regex
+Pattern: .*Image.*
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Reading configuration
+Matchkind: regex
+Pattern: .*Image.*
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Regex: c:\test\Skoletest.docx
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\Skoletest.docx
+Regex: c:\test\Skoletest.docx
+RegexPattern: ^Skole.*
+RegexMatch: true
+Extension: c:\test\Skoletest.docx
+Extension: .docx
+ExtensionMatch: true
+OrCollectionMatch: true
+AndCollectionMatch: true
+Reading configuration
+Matchkind: regex
+Pattern: .*Image.*
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Reading configuration
+Matchkind: regex
+Pattern: .*Image.*
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\New Microsoft Word Document.docx
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\New Microsoft Word Document.docx
+Regex: c:\test\New Microsoft Word Document.docx
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Regex: c:\test\Skoletest.docx
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\Skoletest.docx
+Regex: c:\test\Skoletest.docx
+RegexPattern: ^Skole.*
+RegexMatch: true
+Extension: c:\test\Skoletest.docx
+Extension: .docx
+ExtensionMatch: true
+OrCollectionMatch: true
+AndCollectionMatch: true
+Regex: c:\test\Skoletest.docx
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\Skoletest.docx
+Regex: c:\test\Skoletest.docx
+RegexPattern: ^Skole.*
+RegexMatch: true
+Extension: c:\test\Skoletest.docx
+Extension: .docx
+ExtensionMatch: true
+OrCollectionMatch: true
+AndCollectionMatch: true
+Regex: c:\test\Text Document.txt
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\Text Document.txt
+Regex: c:\test\Text Document.txt
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Regex: c:\test\Text Document.txt
+RegexPattern: .*Image.*
+RegexMatch: false
+AndCollection: c:\test\Text Document.txt
+Regex: c:\test\Text Document.txt
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\New Bitmap Image (2).bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image (2).bmp
+Regex: c:\test\New Bitmap Image (2).bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\New Bitmap Image (2).bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image (2).bmp
+Regex: c:\test\New Bitmap Image (2).bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\New Bitmap Image (2).bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image (2).bmp
+Regex: c:\test\New Bitmap Image (2).bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\New Bitmap Image (2).bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image (2).bmp
+Regex: c:\test\New Bitmap Image (2).bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\New Bitmap Image (2).bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image (2).bmp
+Regex: c:\test\New Bitmap Image (2).bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\New Bitmap Image (2).bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image (2).bmp
+Regex: c:\test\New Bitmap Image (2).bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image (2).bmp
+Extension: .bmp
+ExtensionMatch: true
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Ismage.bmp
+Extension: .bmp
+ExtensionMatch: true
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image (2).bmp
+Extension: .bmp
+ExtensionMatch: true
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image (2).bmp
+Extension: .bmp
+ExtensionMatch: true
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image (2).bmp
+Extension: .bmp
+ExtensionMatch: true
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image (2).bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image (2).bmp
+Regex: c:\test\New Bitmap Image (2).bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmasp Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\tt.bat
+Extension: .bmp
+ExtensionMatch: false
+AndCollection: c:\test\tt.bat
+Regex: c:\test\tt.bat
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\tt.bat
+Extension: .bmp
+ExtensionMatch: false
+AndCollection: c:\test\tt.bat
+Regex: c:\test\tt.bat
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\tt.bat
+Extension: .bmp
+ExtensionMatch: false
+AndCollection: c:\test\tt.bat
+Regex: c:\test\tt.bat
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\tt.bat
+Extension: .bmp
+ExtensionMatch: false
+AndCollection: c:\test\tt.bat
+Regex: c:\test\tt.bat
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\tt.bat
+Extension: .bmp
+ExtensionMatch: false
+AndCollection: c:\test\tt.bat
+Regex: c:\test\tt.bat
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\tt.bat
+Extension: .bmp
+ExtensionMatch: false
+AndCollection: c:\test\tt.bat
+Regex: c:\test\tt.bat
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\tt.bat
+Extension: .bmp
+ExtensionMatch: false
+AndCollection: c:\test\tt.bat
+Regex: c:\test\tt.bat
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+cmd /C C:\test\tt.bat " AUTOFILE_FILE"
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image (2).bmp
+Extension: .bmp
+ExtensionMatch: true
+cmd /C C:\test\tt.bat "AUTOFILE_FILE"
+AndCollection: c:\test\New Bitmap Image (2).bmp
+Regex: c:\test\New Bitmap Image (2).bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\New Bitmap Image (2).bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image (2).bmp
+Regex: c:\test\New Bitmap Image (2).bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+cmd /C C:\test\tt.bat "AUTOFILE_FILE"
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+cmd /C C:\test\tt.bat "c:imagesNew Bitmap Image (37).bmp"
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\tt.bat
+Extension: .bmp
+ExtensionMatch: false
+AndCollection: c:\test\tt.bat
+Regex: c:\test\tt.bat
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\tt.bat
+Extension: .bmp
+ExtensionMatch: false
+AndCollection: c:\test\tt.bat
+Regex: c:\test\tt.bat
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+cmd /C C:\test\tt.bat "'c:imagesNew Bitmap Image (48).bmp'"
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+cmd /C C:\test\tt.bat "'c:imagesNew Bitmap Image (49).bmp'"
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+cmd /C C:\test\tt.bat "'c:\images\New Bitmap Image (50).bmp'"
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\test image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\test image.bmp
+Regex: c:\test\test image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\test image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\test image.bmp
+Regex: c:\test\test image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\test image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\test image.bmp
+Regex: c:\test\test image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\test image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\test image.bmp
+Regex: c:\test\test image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\test image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\test image.bmp
+Regex: c:\test\test image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\test image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\test image.bmp
+Regex: c:\test\test image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\test image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\test image.bmp
+Regex: c:\test\test image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\test image.bmp
+Extension: .bmp
+ExtensionMatch: true
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\test image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\test image.bmp
+Regex: c:\test\test image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\test image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\test image.bmp
+Regex: c:\test\test image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\test image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\test image.bmp
+Regex: c:\test\test image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\test image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\test image.bmp
+Regex: c:\test\test image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\test image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\test image.bmp
+Regex: c:\test\test image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\test image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\test image.bmp
+Regex: c:\test\test image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\test image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\test image.bmp
+Regex: c:\test\test image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\test image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\test image.bmp
+Regex: c:\test\test image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\test image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\test image.bmp
+Regex: c:\test\test image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\test image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\test image.bmp
+Regex: c:\test\test image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\test image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\test image.bmp
+Regex: c:\test\test image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+Extension: c:\test\test image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\test image.bmp
+Regex: c:\test\test image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
+====Starting service====
+Reading configuration
+Matchkind: extension
+Extension: .bmp
+.bmp
+Matchkind: and
+path: matches/match[name = 'schooldocuments']
+Matchkind: regex
+Pattern: ^Skole.*
+Matchkind: or
+path: matches/match[name = 'schooldocuments']/matches/match[2]
+Matchkind: extension
+Extension: .docx
+.docx
+Matchkind: extension
+Extension: .txt
+.txt
+Extension: c:\test\New Bitmap Image.bmp
+Extension: .bmp
+ExtensionMatch: true
+AndCollection: c:\test\New Bitmap Image.bmp
+Regex: c:\test\New Bitmap Image.bmp
+RegexPattern: ^Skole.*
+RegexMatch: false
+AndCollectionMatch: false
