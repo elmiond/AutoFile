@@ -53,11 +53,11 @@ public class CopyAction implements Action
 			}
 
 			Files.copy(filePath, newFilePath);
-			LogHandler.out(String.format("CopyAction | Successfully copied: %s to: %s", filePath, newFilePath), LogHandler.EVENT);
+			LogHandler.out(String.format("CopyAction | Successfully copied: %s to: %s", filePath, newFilePath), LogHandler.ACTION);
 			return new ActionReturn(newFilePath, true);
 		} catch (IOException | InterruptedException e)
 		{
-			LogHandler.out(String.format("CopyAction | Couldn't copy: %s to: %s", filePath, newFilePath), LogHandler.ERROR);
+			LogHandler.out(String.format("CopyAction | Couldn't copy: %s to: %s", filePath, newFilePath), LogHandler.ACTION);
 			return new ActionReturn(filePath, false);
 		}
 	}

@@ -43,11 +43,11 @@ public class CmdAction implements Action
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			LogHandler.out("CommandAction | Error", LogHandler.EVENT);
+			LogHandler.out("CommandAction | Error", LogHandler.ACTION);
 			LogHandler.out("CommandAction | Error", LogHandler.ERROR);
 			return new ActionReturn(filePath, false);
 		}
-		LogHandler.out("CommandAction | Success", LogHandler.EVENT);
+		LogHandler.out("CommandAction | Success", LogHandler.ACTION);
 		return new ActionReturn(filePath, true);
 	}
 

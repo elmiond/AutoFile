@@ -12,7 +12,7 @@ public class AndRule extends MatchRuleCollection
 	}
 	public boolean isMatch(Path filePath)
 	{
-		LogHandler.out("====AndCollectionMatch====", LogHandler.EVENT);
+		LogHandler.out("====AndCollectionMatch====", LogHandler.MATCH);
 		for (MatchRule matchRule : matchRules)
 		{
 			//LogHandler.out("ISMATCHRULE: "+((Boolean)(matchRule instanceof MatchRule)).toString(), LogHandler.EVENT);
@@ -22,7 +22,7 @@ public class AndRule extends MatchRuleCollection
 				MatchRuleCollection matchRuleCollection = (MatchRuleCollection)matchRule;
 				if (!matchRuleCollection.isMatch(filePath))
 				{
-					LogHandler.out("====AndCollectionMatch | Matched? NO====", LogHandler.EVENT);
+					LogHandler.out("====AndCollectionMatch | Matched? NO====", LogHandler.MATCH);
 					return false;
 				}
 			}
@@ -30,12 +30,12 @@ public class AndRule extends MatchRuleCollection
 			{
 				if (!matchRule.isMatch(filePath))
 				{
-					LogHandler.out("====AndCollectionMatch | Matched? NO====", LogHandler.EVENT);
+					LogHandler.out("====AndCollectionMatch | Matched? NO====", LogHandler.MATCH);
 					return false;
 				}
 			}
 		}
-		LogHandler.out("====AndCollectionMatch | Matched? YES====", LogHandler.EVENT);
+		LogHandler.out("====AndCollectionMatch | Matched? YES====", LogHandler.MATCH);
 		return true;
 	}
 

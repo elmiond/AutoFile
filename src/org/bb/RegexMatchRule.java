@@ -19,7 +19,7 @@ public class RegexMatchRule implements MatchRule
 		LogHandler.out(String.format("RegexMatch | %s | Pattern[%s] | Matches? %s",
 				filePath, pattern,
 				((filePath.getFileName().toString().matches(pattern)) ? "YES" : "NO")),
-				LogHandler.EVENT);
+				LogHandler.MATCH);
 		return filePath.getFileName().toString().matches(pattern);
 	}
 

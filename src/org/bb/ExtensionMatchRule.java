@@ -19,7 +19,7 @@ public class ExtensionMatchRule implements MatchRule
 		LogHandler.out(
 				String.format("ExtensionMatch | %s | Extension[%s] | Matches? %s",
 						filePath, extension, ((filePath.toString().toLowerCase()
-								.endsWith(extension)) ? "YES" : "NO")), LogHandler.EVENT);
+								.endsWith(extension)) ? "YES" : "NO")), LogHandler.MATCH);
 		return filePath.toString().toLowerCase().endsWith(extension);
 	}
 
