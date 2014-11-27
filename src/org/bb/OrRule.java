@@ -2,21 +2,34 @@ package org.bb;
 
 import java.nio.file.Path;
 
+/**
+ * MatchRuleCollection in which at least one MatchRule must return true.
+ * @author      Ask Bisgaard	<Elmiond@gmail.com>
+ * @version     1.0
+ * @since       2014-11-27
+ */
 public class OrRule extends MatchRuleCollection
 {
+	/**
+	 * Constructor
+	 */
 	public OrRule()
 	{
 		super();
 		LogHandler.out("Add | OrMatchRuleCollection", LogHandler.INFO);
 		LogHandler.out("====OrMatchRuleCollection Start====", LogHandler.INFO);
 	}
+	
+	/**
+	 * Checks MatchRules in collection to see if at least one matches definition.
+	 * @param	filePath	path of file to be checked
+	 * @return					true if at least one MatchRule in collection returns true, otherwise false
+	 */
 	public boolean isMatch(Path filePath)
 	{
 		LogHandler.out("====OrCollectionMatch====", LogHandler.MATCH);
 		for (MatchRule matchRule : matchRules)
 		{
-			//LogHandler.out("ISMATCHRULE: "+((Boolean)(matchRule instanceof MatchRule)).toString(), LogHandler.EVENT);
-			//LogHandler.out("ISMATCHRULECOLLECTION: "+((Boolean)(matchRule instanceof MatchRuleCollection)).toString(), LogHandler.EVENT);
 			if (matchRule instanceof MatchRuleCollection)
 			{
 				MatchRuleCollection matchRuleCollection = (MatchRuleCollection)matchRule;
@@ -37,10 +50,5 @@ public class OrRule extends MatchRuleCollection
 		}
 		LogHandler.out("====OrCollectionMatch | Matched? NO====", LogHandler.MATCH);
 		return false;
-	}
-	
-	public void add(MatchRule matchRule)
-	{
-		matchRules.add(matchRule);
 	}
 }
