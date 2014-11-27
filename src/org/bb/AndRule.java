@@ -7,6 +7,7 @@ import java.nio.file.Path;
  * @author      Ask Bisgaard	<Elmiond@gmail.com>
  * @version     1.0
  * @since       2014-11-27
+ * @see					org.bb.MatchRuleCollection
  */
 public class AndRule extends MatchRuleCollection
 {
@@ -22,7 +23,7 @@ public class AndRule extends MatchRuleCollection
 	
 	/**
 	 * Checks MatchRules in collection to see all match definitions.
-	 * @param	filePath	path of file to be checked
+	 * @param	filePath	Path of file to be checked
 	 * @return					true only if all MatchRules in collection return true, otherwise false
 	 */
 	public boolean isMatch(Path filePath)

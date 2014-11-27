@@ -7,6 +7,7 @@ import java.util.ArrayList;
  * @author      Ask Bisgaard	<Elmiond@gmail.com>
  * @version     1.0
  * @since       2014-11-27
+ * @see					org.bb.MatchRule
  */
 public abstract class MatchRuleCollection implements MatchRule
 {
