@@ -25,7 +25,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.configuration.ConfigurationException;
-import org.apache.commons.logging.Log;
 
 /**
  * @author Elmiond

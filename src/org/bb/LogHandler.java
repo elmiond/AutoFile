@@ -9,10 +9,11 @@ import java.nio.file.Paths;
 
 public final class LogHandler
 {
-	public static final int EVENT = 0;
-	public static final int ERROR = 1;
-	public static final int WARNING = 2;
-	public static final int INFO = 3;
+	public static final int MATCH = 0;
+	public static final int ACTION = 1;
+	public static final int ERROR = 2;
+	public static final int WARNING = 3;
+	public static final int INFO = 4;
 
 	private static final String eventLog = "events.log";
 	private static final String errorLog = "errors.log";
@@ -22,20 +23,20 @@ public final class LogHandler
 		PrintWriter writer;
 		try
 		{
-			if (kind > 0)
+			if (kind > 1)
 			{
 				checkFile(errorLog);
 				switch (kind)
 				{
-				case 1:
+				case ERROR:
 					message = "ERROR   | " + message;
 					break;
 					
-				case 2:
+				case WARNING:
 					message = "WARNING | " + message;
 					break;
 					
-				case 3:
+				case INFO:
 					message = "INFO    | " + message;
 					break;
 
@@ -51,6 +52,19 @@ public final class LogHandler
 			} else
 			{
 				checkFile(eventLog);
+				switch (kind)
+				{
+				case MATCH:
+					message = "MATCH   | " + message;
+					break;
+					
+				case ACTION:
+					message = "ACTION  | " + message;
+					break;
+
+				default:
+					break;
+				}
 				writer = new PrintWriter(new BufferedWriter(new FileWriter(eventLog,
 						true)));
 				writer.println(message);

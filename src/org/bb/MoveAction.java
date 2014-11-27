@@ -43,11 +43,11 @@ public class MoveAction implements Action
 			}
 
 			Files.move(filePath, newFilePath);
-			LogHandler.out(String.format("MoveAction | Successfully moved: %s to: %s", filePath, newFilePath), LogHandler.EVENT);
+			LogHandler.out(String.format("MoveAction | Successfully moved: %s to: %s", filePath, newFilePath), LogHandler.ACTION);
 			return new ActionReturn(newFilePath, true);
 		} catch (IOException | InterruptedException e)
 		{
-			LogHandler.out(String.format("MoveAction | Couldn't move: %s to: %s", filePath, newFilePath), LogHandler.ERROR);
+			LogHandler.out(String.format("MoveAction | Couldn't move: %s to: %s", filePath, newFilePath), LogHandler.ACTION);
 			return new ActionReturn(filePath, false);
 		}
 	}
