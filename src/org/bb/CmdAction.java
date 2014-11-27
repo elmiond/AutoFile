@@ -19,11 +19,7 @@ public class CmdAction implements Action
 	@Override
 	public ActionReturn doWork(Path filePath)
 	{
-		//String cmd = "cmd /C C:\\test\\tt.bat \"AUTOFILE_FILENAME\"";
-
-		cmd = cmd.replaceAll("AUTOFILE_PATH", filePath.toString().replace("\\", "\\\\"));
-		cmd = cmd.replaceAll("AUTOFILE_FILENAME", filePath.toFile().getName().substring(0, filePath.toFile().getName().lastIndexOf('.')));
-		cmd = cmd.replaceAll("AUTOFILE_FILEEXT", filePath.toFile().getName().substring(filePath.toFile().getName().lastIndexOf('.') + 1));
+		cmd = VarHandler.replace(cmd, filePath);
 		
 		try
 		{
