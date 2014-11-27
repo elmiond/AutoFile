@@ -7,9 +7,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.zip.*;
 
-public class fileUnzipAction implements Action {
+public class FileUnzipAction implements Action {
 
-	public fileUnzipAction(Path filePath) {
+	public FileUnzipAction(Path filePath) {
 		super();
 	}
 
