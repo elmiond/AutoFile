@@ -53,34 +53,38 @@
 			</rulesets>
 		</folder>
 	</folders>
-	<matches>
-		<match>
+	<matchsets>
+		<matchset>
 			<name>imagesregex</name>
-			<kind>extension</kind>
-			<extension>.bmp</extension>
-		</match>
-		<match>
+			<match>
+				<kind>extension</kind>
+				<extension>.bmp</extension>
+			</match>
+		</matchset>
+		<matchset>
 			<name>schooldocuments</name>
-			<kind>and</kind>
-			<matches>
-				<match>
-					<kind>regex</kind>
-					<pattern>^Skole.*</pattern>
-				</match>
-				<match>
-					<kind>or</kind>
-					<matches>
-						<match>
-							<kind>extension</kind>
-							<extension>.docx</extension>
-						</match>
-						<match>
-							<kind>extension</kind>
-							<extension>.txt</extension>
-						</match>
-					</matches>
-				</match>
-			</matches>
-		</match>
-	</matches>
+			<match>
+				<kind>and</kind>
+				<matches>
+					<match>
+						<kind>regex</kind>
+						<pattern>^Skole.*</pattern>
+					</match>
+					<match>
+						<kind>or</kind>
+						<matches>
+							<match>
+								<kind>extension</kind>
+								<extension>.docx</extension>
+							</match>
+							<match>
+								<kind>extension</kind>
+								<extension>.txt</extension>
+							</match>
+						</matches>
+					</match>
+				</matches>
+			</match>
+		</matchset>
+	</matchsets>
 </config>

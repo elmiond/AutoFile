@@ -64,7 +64,7 @@ public class ConfigHandler
 
 					//System.out.println(mat[i]);
 					//System.out.println(act[i]);
-					rules.add(new RuleSet(getMatchRule("matches/match[name = '" + mat[i] + "']"), getActions(act[i])));
+					rules.add(new RuleSet(getMatchset(mat[i]), getActionset(act[i])));
 					i++;
 					if (i >= mat.length || i >= act.length)
 					{
@@ -82,24 +82,26 @@ public class ConfigHandler
 		LogHandler.out("====Configuration loaded====", LogHandler.INFO);
 		return folders;
 	}
-
-	private MatchRule getMatchRule(String xpath)
+	private MatchRule getMatchset(String name)
+	{
+		return getMatch("matchsets/matchset[name = '" + name + "']/match");
+	}
+	private MatchRule getMatch(String xpath)
 	{
 		String kind = config.getString(xpath + "/kind");
 		String[] ss;
 		int i;
 		
-		//LogHandler.out("Matchkind: " + kind, LogHandler.EVENT);
+		
 		switch (kind)
 		{
 		case "or":
 			OrRule orRule = new OrRule();
-			//LogHandler.out("path: " + xpath, LogHandler.EVENT);
 			ss = config.getStringArray(xpath + "/matches/match/kind");
 			i = 1;
 			for (String s : ss)
 			{
-				orRule.add(getMatchRule(xpath + "/matches/match["+ i +"]"));
+				orRule.add(getMatch(xpath + "/matches/match["+ i +"]"));
 				i++;
 			}
 			LogHandler.out("====OrMatchRuleCollection End====", LogHandler.INFO);
@@ -107,12 +109,11 @@ public class ConfigHandler
 			
 		case "and":
 			AndRule andRule = new AndRule();
-			//LogHandler.out("path: " + xpath, LogHandler.EVENT);
 			ss = config.getStringArray(xpath + "/matches/match/kind");
 			i = 1;
 			for (String s : ss)
 			{
-				andRule.add(getMatchRule(xpath + "/matches/match["+ i +"]"));
+				andRule.add(getMatch(xpath + "/matches/match["+ i +"]"));
 				i++;
 			}
 			LogHandler.out("====AndMatchRuleCollection End====", LogHandler.INFO);
@@ -120,7 +121,6 @@ public class ConfigHandler
 			
 		case "regex":
 			String pattern = config.getString(xpath + "/pattern");
-			//LogHandler.out("Pattern: " + pattern, LogHandler.EVENT);
 			return new RegexMatchRule(pattern);
 			
 		case "extension":
@@ -132,7 +132,7 @@ public class ConfigHandler
 		}
 	}
 
-	private ArrayList<Action> getActions(String name)
+	private ArrayList<Action> getActionset(String name)
 	{
 		ArrayList<Action> al = new ArrayList<Action>();
 
@@ -142,7 +142,6 @@ public class ConfigHandler
 		int i = 1;
 		for (String kind : kinds)
 		{
-			//System.out.println(kind);
 			al.add(getAction(name, i, kind));
 			i++;
 		}
@@ -164,7 +163,6 @@ public class ConfigHandler
 							+ "']/actions/action[" + index + "]/destination")));
 			
 		case "cmd":
-			//return new CmdAction("cmd /C C:\\test\\tt.bat \"AUTOFILE_FILENAME\"");
 			return new CmdAction(config.getString("actionsets/actionset[name = '" + name + "']/actions/action[" + index + "]/command"));
 
 		default:
