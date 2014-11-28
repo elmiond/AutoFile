@@ -3,28 +3,55 @@ package org.bb;
 import java.nio.file.Path;
 import java.util.ArrayList;
 
+/**
+ * Container for a single MatchSet and ActionSet, used by {@link org.bb.WatchedFolder} to tie them together.
+ * @author      Ask Bisgaard	<Elmiond@gmail.com>
+ * @version     1.0
+ * @since       2014-11-28
+ * @see					org.bb.Action
+ * @see					org.bb.MatchRule 
+ * @see					org.bb.WatchedFolder
+ */
 public class RuleSet
 {
-	MatchRule matchRule;
-	ArrayList<Action> actions = new ArrayList<Action>();
+	/**
+	 * definition to judge the file by.
+	 */
+	MatchRule matchSet;
 	
-	public RuleSet(MatchRule matchRule, ArrayList<Action> actions)
+	/**
+	 * list of actions to run on a matched file.
+	 */
+	ArrayList<Action> actionsSet = new ArrayList<Action>();
+	
+	/**
+	 * Constructor.
+	 * @param	matchSet		what criteria to match on
+	 * @param	actionsSet	what actions to run on matching files
+	 * @see								org.bb.Action
+	 * @see								org.bb.MatchRule 
+	 */
+	public RuleSet(MatchRule matchSet, ArrayList<Action> actionsSet)
 	{
-		this.matchRule = matchRule;
-		this.actions = actions;
+		this.matchSet = matchSet;
+		this.actionsSet = actionsSet;
 	}
 
-	public void doWork(Path path)
+	/**
+	 * Runs checks and possibly operations on file.
+	 * @param	filePath	Path of file to be checked and possibly affected
+	 */
+	public void doWork(Path filePath)
 	{
-		if (matchRule.isMatch(path))
+		if (matchSet.isMatch(filePath))
 		{
-			System.out.println("Matched: " + path);
-			for (Action a : actions)
+			System.out.println("Matched: " + filePath);
+			for (Action a : actionsSet)
 			{
-				ActionReturn actionreturn = a.doWork(path);
+				ActionReturn actionreturn = a.doWork(filePath);
 				if (actionreturn.wasSuccess)
 				{
-					path = actionreturn.newFilePath;
+					filePath = actionreturn.newFilePath;
 				}
 				else
 				{
