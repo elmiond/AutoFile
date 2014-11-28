@@ -13,11 +13,27 @@ import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.XMLConfiguration;
 import org.apache.commons.configuration.tree.xpath.XPathExpressionEngine;
 
+/**
+ * Handles all interaction with the config file
+ * @author      Ask Bisgaard	<Elmiond@gmail.com>
+ * @version     1.0
+ * @since       2014-11-28
+ */
 public class ConfigHandler
 {
+	/**
+	 * name of the config file.
+	 */
 	String configFile = "config.xml";
+	
+	/**
+	 * {@link org.apache.commons.configuration.XMLConfiguration} instance.
+	 */
 	XMLConfiguration config;
 
+	/**
+	 * Constructor, also creates config file if missing.
+	 */
 	public ConfigHandler()
 	{
 		try
@@ -26,9 +42,7 @@ public class ConfigHandler
 			{
 				Files.createFile(Paths.get(configFile));
 
-				// TODO tilføj skrivning af en tom basis struktur når når vi ved hvordan
-				// den
-				// skal være
+				// TODO Creation of skeleton config file
 			}
 			config = new XMLConfiguration(configFile);
 			config.setExpressionEngine(new XPathExpressionEngine());
@@ -41,6 +55,11 @@ public class ConfigHandler
 
 	}
 
+	/**
+	 * Get folders and their associated {@link org.bb.RuleSet}s.
+	 * @see									org.bb.WatchedFolder
+	 * @return 							an ArrayList of {@link org.bb.WatchedFolder}, including their {@link org.bb.RuleSet}s
+	 */
 	public ArrayList<WatchedFolder> getFolders() throws ConfigurationException
 	{
 		ArrayList<WatchedFolder> folders = new ArrayList<WatchedFolder>();
@@ -61,9 +80,6 @@ public class ConfigHandler
 				boolean run = true;
 				while (run)
 				{
-
-					//System.out.println(mat[i]);
-					//System.out.println(act[i]);
 					rules.add(new RuleSet(getMatchset(mat[i]), getActionset(act[i])));
 					i++;
 					if (i >= mat.length || i >= act.length)
@@ -76,16 +92,28 @@ public class ConfigHandler
 			} else
 			{
 				LogHandler.out(String.format("Could not find folder: %s\n", s), LogHandler.WARNING);
-				//System.out.format("Could not find folder: %s\n", s);
 			}
 		}
 		LogHandler.out("====Configuration loaded====", LogHandler.INFO);
 		return folders;
 	}
+	
+	/**
+	 * Gets a MatchSet by name.
+	 * @param	name					name of MatchSet to get
+	 * @return 							MatchRule identified by name
+	 */
 	private MatchRule getMatchset(String name)
 	{
 		return getMatch("matchsets/matchset[name = '" + name + "']/match");
 	}
+	
+	/**
+	 * Gets the MatchRule and it's configuration.
+	 * Runs recursively for MatchRuleCollections
+	 * @param	xpath					name of the ActionSet
+	 * @return							the configured MatchRule
+	 */
 	private MatchRule getMatch(String xpath)
 	{
 		String kind = config.getString(xpath + "/kind");
@@ -132,6 +160,11 @@ public class ConfigHandler
 		}
 	}
 
+	/**
+	 * Gets an ActionSet by name.
+	 * @param	name					name of ActionSet to get
+	 * @return 							ArrayList of Actions identified by name
+	 */
 	private ArrayList<Action> getActionset(String name)
 	{
 		ArrayList<Action> al = new ArrayList<Action>();
@@ -148,8 +181,16 @@ public class ConfigHandler
 		return al;
 	}
 
+	/**
+	 * Get a specific Action, including it's individual settings.
+	 * @param	name					name of the ActionSet
+	 * @param	index					index of the Action to get
+	 * @param	kind					the kind of the Action
+	 * @return							the configured Action
+	 */
 	private Action getAction(String name, int index, String kind)
 	{
+		// TODO streamline method akin to what exists in Configeditor project
 		switch (kind)
 		{
 		case "move":
