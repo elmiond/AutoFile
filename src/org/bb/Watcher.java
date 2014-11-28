@@ -27,14 +27,30 @@ import java.util.Map;
 import org.apache.commons.configuration.ConfigurationException;
 
 /**
- * @author Elmiond
- *
+ * Requests the operating system notify on folder events for configured paths.
+ * Upon notification it runs the {@link org.bb.RuleSet} chain for that folder.
+ * Reloads upon changes to the config file.
+ * @author      Ask Bisgaard	<Elmiond@gmail.com>
+ * @version     1.0
+ * @since       2014-11-28
+ * @see					org.bb.WatchedFolder
+ * @see					org.bb.ConfigHandler
  */
 public class Watcher implements Runnable
 {
-
+	/**
+	 * {@link java.nio.file.WatchService} instance.
+	 */
 	private final WatchService watcher;
+	
+	/**
+	 * ties event keys to the {@link org.bb.WatchedFolder} for lookup purposes.
+	 */
 	private Map<WatchKey, WatchedFolder> watchedfolders = new HashMap<WatchKey, WatchedFolder>();
+	
+	/**
+	 * Path to config file.
+	 */
 	private final Path config = Paths.get("config.xml");
 
 	@SuppressWarnings("unchecked")
@@ -44,7 +60,10 @@ public class Watcher implements Runnable
 	}
 
 	/**
-	 * Register the given directory with the WatchService
+	 * Register the given directory with the WatchService.
+	 * @param	dir						Path to the folder to be watched
+	 * @param	ruleSets			the associated RuleSets
+	 * @see									org.bb.RuleSet
 	 */
 	private void register(Path dir, ArrayList<RuleSet> ruleSets)
 			throws IOException
@@ -67,12 +86,13 @@ public class Watcher implements Runnable
 	}
 
 	/**
-	 * Register the given directory, and all its sub-directories, with the
-	 * WatchService.
+	 * Register the given directory, and all its sub-directories, with the WatchService.
+	 * @param	watchedfolder	the folder and it's associated RuleSets that is to be watched
+	 * @see									org.bb.WatchedFolder
 	 */
 	public void registerAll(final WatchedFolder watchedfolder) throws IOException
 	{
-		// register directory and sub-directories
+		//register directory and sub-directories
 		Files.walkFileTree(watchedfolder.folderPath, new SimpleFileVisitor<Path>()
 		{
 			@Override
@@ -86,7 +106,7 @@ public class Watcher implements Runnable
 	}
 
 	/**
-	 * Creates a WatchService and registers the given directory
+	 * Registers the WatchService
 	 */
 	Watcher() throws IOException
 	{
@@ -105,7 +125,7 @@ public class Watcher implements Runnable
 		while (true)
 		{
 
-			// wait for key to be signalled
+			//wait for key to be signalled
 			WatchKey key;
 			try
 			{
@@ -117,7 +137,6 @@ public class Watcher implements Runnable
 			WatchedFolder watchedfolder = this.watchedfolders.get(key);
 			if (watchedfolder == null || watchedfolder.folderPath == null)
 			{
-				//System.err.println("WatchKey not recognized!!");
 				LogHandler.out("WatchKey not recognized!!", LogHandler.WARNING);
 				continue;
 			}
@@ -126,7 +145,7 @@ public class Watcher implements Runnable
 			{
 				WatchEvent.Kind kind = event.kind();
 
-				// TBD - provide example of how OVERFLOW event is handled
+				// TODO decide how to handle OVERFLOW events
 				if (kind == OVERFLOW)
 				{
 					continue;
@@ -137,39 +156,22 @@ public class Watcher implements Runnable
 				Path name = ev.context();
 				Path child = watchedfolder.folderPath.resolve(name);
 
-				// print out event
-				//System.out.format("%s: %s\n", event.kind().name(), child);
-				//LogHandler.out(String.format("%s: %s\n", event.kind().name(), child), LogHandler.WARNING);
-
-				// if directory is created, and watching recursively, then
-				// register it and its sub-directories
-
+				//if directory is AutoFile root directory
 				if (child.toAbsolutePath().equals(config.toAbsolutePath()))
 				{
-					// discard events for AutoFile root dir not pertaining to the config
-					// file
+					//discard events for AutoFile root dir not pertaining to the config file
 					if (child.getFileName().toString().equals("config.xml"))
 					{
-						//System.out.println("====config changed====");
 						LogHandler.out("====Configuration changed====", LogHandler.INFO);
-						clearWatchlist();
-						try
-						{
-							Thread.sleep(10);
-						} catch (InterruptedException e)
-						{
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-						loadConfig();
+						reload();
 					}
-				} else if (!child.getFileName().toString().startsWith("~"))
+				} else if (!child.getFileName().toString().startsWith("~")) //discard windows systemfiles
 				{
 					if (kind == ENTRY_CREATE)
 					{
 						try
 						{
-							if (Files.isDirectory(child, NOFOLLOW_LINKS))
+							if (Files.isDirectory(child, NOFOLLOW_LINKS)) //if event is creation of new directory, register it.
 							{
 								registerAll(watchedfolder);
 							} else
@@ -206,18 +208,38 @@ public class Watcher implements Runnable
 		}
 	}
 
-	public void clearWatchlist()
+	/**
+	 * clears service and reloads.
+	 */
+	public void reload()
 	{
 		this.watchedfolders.clear();
+		
+		//short sleep to avoid accessing the file before the operating system has finished with it
+		try
+		{
+			Thread.sleep(10);
+		} catch (InterruptedException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		loadConfig();
 	}
 
+	/**
+	 * loads the configuration via {@link org.bb.ConfigHandler}.
+	 * @see 				org.bb.ConfigHandler
+	 */
 	public void loadConfig()
 	{
 		ConfigHandler ch = new ConfigHandler();
 		ArrayList<WatchedFolder> watchedfolders;
 		try
 		{
-			register(config.toAbsolutePath().getParent(), new ArrayList<RuleSet>());
+			register(config.toAbsolutePath().getParent(), new ArrayList<RuleSet>()); //register AutoFile root directory
+			
 			watchedfolders = ch.getFolders();
 			for (WatchedFolder watchedfolder : watchedfolders)
 			{
