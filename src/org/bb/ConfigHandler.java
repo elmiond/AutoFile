@@ -19,22 +19,26 @@ import org.apache.commons.configuration.tree.xpath.XPathExpressionEngine;
  * @version     1.0
  * @since       2014-11-28
  */
-public class ConfigHandler
+final public class ConfigHandler
 {
 	/**
 	 * name of the config file.
 	 */
-	String configFile = "config.xml";
+	static String configFile = "config.xml";
 	
 	/**
 	 * {@link org.apache.commons.configuration.XMLConfiguration} instance.
 	 */
-	XMLConfiguration config;
+	static XMLConfiguration config;
 
 	/**
 	 * Constructor, also creates config file if missing.
 	 */
-	public ConfigHandler()
+	private ConfigHandler()
+	{
+	}
+	
+	static private void verifyConfigFile()
 	{
 		try
 		{
@@ -52,7 +56,6 @@ public class ConfigHandler
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
 
 	/**
@@ -60,8 +63,10 @@ public class ConfigHandler
 	 * @see									org.bb.WatchedFolder
 	 * @return 							an ArrayList of {@link org.bb.WatchedFolder}, including their {@link org.bb.RuleSet}s
 	 */
-	public ArrayList<WatchedFolder> getFolders() throws ConfigurationException
+	static public ArrayList<WatchedFolder> getFolders() throws ConfigurationException
 	{
+		verifyConfigFile();
+		
 		ArrayList<WatchedFolder> folders = new ArrayList<WatchedFolder>();
 		
 		LogHandler.out("====Reading configuration====", LogHandler.INFO);
@@ -103,7 +108,7 @@ public class ConfigHandler
 	 * @param	name					name of MatchSet to get
 	 * @return 							MatchRule identified by name
 	 */
-	private MatchRule getMatchset(String name)
+	static private MatchRule getMatchset(String name)
 	{
 		return getMatch("matchsets/matchset[name = '" + name + "']/match");
 	}
@@ -114,7 +119,7 @@ public class ConfigHandler
 	 * @param	xpath					name of the ActionSet
 	 * @return							the configured MatchRule
 	 */
-	private MatchRule getMatch(String xpath)
+	static private MatchRule getMatch(String xpath)
 	{
 		String kind = config.getString(xpath + "/kind");
 		String[] ss;
@@ -165,7 +170,7 @@ public class ConfigHandler
 	 * @param	name					name of ActionSet to get
 	 * @return 							ArrayList of Actions identified by name
 	 */
-	private ArrayList<Action> getActionset(String name)
+	static private ArrayList<Action> getActionset(String name)
 	{
 		ArrayList<Action> al = new ArrayList<Action>();
 
@@ -188,7 +193,7 @@ public class ConfigHandler
 	 * @param	kind					the kind of the Action
 	 * @return							the configured Action
 	 */
-	private Action getAction(String name, int index, String kind)
+	static private Action getAction(String name, int index, String kind)
 	{
 		// TODO streamline method akin to what exists in Configeditor project
 		switch (kind)
@@ -209,5 +214,11 @@ public class ConfigHandler
 		default:
 			return new MoveAction(Paths.get(""));
 		}
+	}
+
+	public static int getFrequency()
+	{
+		// TODO Auto-generated method stub
+		return 60;
 	}
 }

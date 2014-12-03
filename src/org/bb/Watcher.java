@@ -10,6 +10,7 @@ import static java.nio.file.StandardWatchEventKinds.ENTRY_MODIFY;
 import static java.nio.file.StandardWatchEventKinds.OVERFLOW;
 
 import java.io.IOException;
+import java.nio.file.DirectoryStream;
 import java.nio.file.FileSystems;
 import java.nio.file.FileVisitResult;
 import java.nio.file.Files;
@@ -22,7 +23,7 @@ import java.nio.file.WatchService;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
+import java.util.Map.Entry;
 
 import org.apache.commons.configuration.ConfigurationException;
 
@@ -30,24 +31,27 @@ import org.apache.commons.configuration.ConfigurationException;
  * Requests the operating system notify on folder events for configured paths.
  * Upon notification it runs the {@link org.bb.RuleSet} chain for that folder.
  * Reloads upon changes to the config file.
- * @author      Ask Bisgaard	<Elmiond@gmail.com>
- * @version     1.0
- * @since       2014-11-28
- * @see					org.bb.WatchedFolder
- * @see					org.bb.ConfigHandler
+ * 
+ * @author Ask Bisgaard <Elmiond@gmail.com>
+ * @version 1.0
+ * @since 2014-11-28
+ * @see org.bb.WatchedFolder
+ * @see org.bb.ConfigHandler
  */
 public class Watcher implements Runnable
 {
+	int frequency, counter;
+
 	/**
 	 * {@link java.nio.file.WatchService} instance.
 	 */
 	private final WatchService watcher;
-	
+
 	/**
 	 * ties event keys to the {@link org.bb.WatchedFolder} for lookup purposes.
 	 */
-	private Map<WatchKey, WatchedFolder> watchedfolders = new HashMap<WatchKey, WatchedFolder>();
-	
+	private HashMap<WatchKey, WatchedFolder> watchedfolders = new HashMap<WatchKey, WatchedFolder>();
+
 	/**
 	 * Path to config file.
 	 */
@@ -61,9 +65,13 @@ public class Watcher implements Runnable
 
 	/**
 	 * Register the given directory with the WatchService.
-	 * @param	dir						Path to the folder to be watched
-	 * @param	ruleSets			the associated RuleSets
-	 * @see									org.bb.RuleSet
+	 * 
+	 * @param dir
+	 *          Path to the folder to be watched
+	 * @param ruleSets
+	 *          the associated RuleSets
+	 * @throws IOException
+	 * @see org.bb.RuleSet
 	 */
 	private void register(Path dir, ArrayList<RuleSet> ruleSets)
 			throws IOException
@@ -72,7 +80,8 @@ public class Watcher implements Runnable
 				ENTRY_MODIFY);
 		if (this.watchedfolders.get(key) == null)
 		{
-			LogHandler.out(String.format("Registered folder: %s", dir), LogHandler.INFO);
+			LogHandler.out(String.format("Registered folder: %s", dir),
+					LogHandler.INFO);
 		} else
 		{
 			Path prev = this.watchedfolders.get(key).folderPath;
@@ -86,23 +95,26 @@ public class Watcher implements Runnable
 	}
 
 	/**
-	 * Register the given directory, and all its sub-directories, with the WatchService.
-	 * @param	watchedfolder	the folder and it's associated RuleSets that is to be watched
-	 * @see									org.bb.WatchedFolder
+	 * Register the given directory, and all its sub-directories, with the
+	 * WatchService.
+	 * 
+	 * @param watchedfolder
+	 *          the folder and it's associated RuleSets that is to be watched
+	 * @see org.bb.WatchedFolder
 	 */
 	public void registerAll(final WatchedFolder watchedfolder) throws IOException
 	{
-		//register directory and sub-directories
+		// register directory and sub-directories
 		Files.walkFileTree(watchedfolder.folderPath, new SimpleFileVisitor<Path>()
-		{
-			@Override
-			public FileVisitResult preVisitDirectory(Path dir,
-					BasicFileAttributes attrs) throws IOException
 			{
-				register(dir, new ArrayList<RuleSet>(watchedfolder.ruleSets));
-				return FileVisitResult.CONTINUE;
-			}
-		});
+				@Override
+				public FileVisitResult preVisitDirectory(Path dir,
+						BasicFileAttributes attrs) throws IOException
+				{
+					register(dir, new ArrayList<RuleSet>(watchedfolder.ruleSets));
+					return FileVisitResult.CONTINUE;
+				}
+			});
 	}
 
 	/**
@@ -125,7 +137,7 @@ public class Watcher implements Runnable
 		while (true)
 		{
 
-			//wait for key to be signalled
+			// wait for key to be signalled
 			WatchKey key;
 			try
 			{
@@ -148,7 +160,7 @@ public class Watcher implements Runnable
 				// TODO decide how to handle OVERFLOW events
 				if (kind == OVERFLOW)
 				{
-					continue;
+					fullRun(true);
 				}
 
 				// Context for directory entry event is the file name of entry
@@ -156,22 +168,28 @@ public class Watcher implements Runnable
 				Path name = ev.context();
 				Path child = watchedfolder.folderPath.resolve(name);
 
-				//if directory is AutoFile root directory
+				// if directory is AutoFile root directory
 				if (child.toAbsolutePath().equals(config.toAbsolutePath()))
 				{
-					//discard events for AutoFile root dir not pertaining to the config file
+					// discard events for AutoFile root dir not pertaining to the config
+					// file
 					if (child.getFileName().toString().equals("config.xml"))
 					{
 						LogHandler.out("====Configuration changed====", LogHandler.INFO);
 						reload();
 					}
-				} else if (!child.getFileName().toString().startsWith("~")) //discard windows systemfiles
+				} else if (!child.getFileName().toString().startsWith("~")) // discard
+																																		// windows
+																																		// systemfiles
 				{
 					if (kind == ENTRY_CREATE)
 					{
 						try
 						{
-							if (Files.isDirectory(child, NOFOLLOW_LINKS)) //if event is creation of new directory, register it.
+							if (Files.isDirectory(child, NOFOLLOW_LINKS)) // if event is
+																														// creation of new
+																														// directory,
+																														// register it.
 							{
 								registerAll(watchedfolder);
 							} else
@@ -214,8 +232,9 @@ public class Watcher implements Runnable
 	public void reload()
 	{
 		this.watchedfolders.clear();
-		
-		//short sleep to avoid accessing the file before the operating system has finished with it
+
+		// short sleep to avoid accessing the file before the operating system has
+		// finished with it
 		try
 		{
 			Thread.sleep(10);
@@ -224,23 +243,26 @@ public class Watcher implements Runnable
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		loadConfig();
 	}
 
 	/**
 	 * loads the configuration via {@link org.bb.ConfigHandler}.
-	 * @see 				org.bb.ConfigHandler
+	 * 
+	 * @see org.bb.ConfigHandler
 	 */
 	public void loadConfig()
 	{
-		ConfigHandler ch = new ConfigHandler();
+		frequency = ConfigHandler.getFrequency();
+
 		ArrayList<WatchedFolder> watchedfolders;
 		try
 		{
-			register(config.toAbsolutePath().getParent(), new ArrayList<RuleSet>()); //register AutoFile root directory
-			
-			watchedfolders = ch.getFolders();
+			// register AutoFile root directory
+			register(config.toAbsolutePath().getParent(), new ArrayList<RuleSet>());
+
+			watchedfolders = ConfigHandler.getFolders();
 			for (WatchedFolder watchedfolder : watchedfolders)
 			{
 				registerAll(watchedfolder);
@@ -250,5 +272,59 @@ public class Watcher implements Runnable
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		fullRun(true);
+	}
+
+	public void fullRun(boolean forceRun)
+	{
+		if (forceRun || counter >= frequency)
+		{
+			counter = 0;
+			LogHandler.out("====FULL RUN!!====", LogHandler.INFO);
+			for (Entry<WatchKey, WatchedFolder> entry : watchedfolders.entrySet())
+			{
+				if (!entry.getValue().folderPath.toAbsolutePath().startsWith(
+						Paths.get("").toAbsolutePath()))
+				{
+					ArrayList<Path> files = new ArrayList<Path>();
+
+					try
+					{
+						files = listFiles(entry.getValue().folderPath);
+					} catch (IOException e)
+					{
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					for (Path file : files)
+					{
+						entry.getValue().doWork(file);
+						// LogHandler.out(file.toAbsolutePath().toString(),
+						// LogHandler.INFO);
+					}
+				}
+			}
+		} else
+		{
+			counter++;
+		}
+	}
+
+	private ArrayList<Path> listFiles(Path path) throws IOException
+	{
+		ArrayList<Path> files = new ArrayList<Path>();
+
+		try (DirectoryStream<Path> stream = Files.newDirectoryStream(path))
+		{
+			for (Path entry : stream)
+			{
+				if (!Files.isDirectory(entry))
+				{
+					files.add(entry);
+				}
+			}
+		}
+		return files;
 	}
 }
