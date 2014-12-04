@@ -38,7 +38,6 @@ public class MoveAction implements Action
 	public ActionReturn doWork(Path filePath)
 	{
 		Path newFilePath = destination.resolve(filePath.getFileName());
-		//System.out.println(newFilePath);
 		try
 		{
 			int i = 0;
@@ -62,6 +61,7 @@ public class MoveAction implements Action
 				i++;
 			}
 
+			destination.toFile().mkdirs();
 			Files.move(filePath, newFilePath);
 			LogHandler.out(String.format("MoveAction | Successfully moved: %s to: %s", filePath, newFilePath), LogHandler.ACTION);
 			return new ActionReturn(newFilePath, true);

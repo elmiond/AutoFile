@@ -71,6 +71,7 @@ public class CopyAction implements Action
 				i++;
 			}
 
+			destination.toFile().mkdirs();
 			Files.copy(filePath, newFilePath);
 			LogHandler.out(String.format("CopyAction | Successfully copied: %s to: %s", filePath, newFilePath), LogHandler.ACTION);
 			return new ActionReturn(newFilePath, true);
