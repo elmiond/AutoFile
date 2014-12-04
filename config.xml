@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- config.xml -->
-<config>
+<config frequency="90">
 	<actionsets>
 		<actionset>
 			<name>movetoimages</name>

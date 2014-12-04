@@ -9,6 +9,8 @@ import java.util.ArrayList;
 
 
 
+import java.util.Properties;
+
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.XMLConfiguration;
 import org.apache.commons.configuration.tree.xpath.XPathExpressionEngine;
@@ -219,6 +221,8 @@ final public class ConfigHandler
 	public static int getFrequency()
 	{
 		// TODO Auto-generated method stub
-		return 60;
+		verifyConfigFile();
+		
+		return config.getInt("/@frequency", 60);
 	}
 }
