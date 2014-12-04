@@ -40,28 +40,7 @@ public class CopyAction implements Action
 		Path newFilePath = destination.resolve(filePath.getFileName());
 		try
 		{
-			int i = 0;
-			while (!filePath.toFile().exists())
-			{
-				if (i >= 120)
-				{
-					break;
-				}
-				Thread.sleep(100);
-				i++;
-			}
-			if (!Files.notExists(newFilePath))
-			{
-				try
-				{
-					Files.createDirectory(newFilePath);
-				} catch (Exception e)
-				{
-					// TODO: handle exception
-				}
-			}
-
-			i = 1;
+			int i = 1;
 			while (newFilePath.toFile().exists())
 			{
 				String name = filePath.getFileName().toString();
@@ -75,7 +54,7 @@ public class CopyAction implements Action
 			Files.copy(filePath, newFilePath);
 			LogHandler.out(String.format("CopyAction | Successfully copied: %s to: %s", filePath, newFilePath), LogHandler.ACTION);
 			return new ActionReturn(newFilePath, true);
-		} catch (IOException | InterruptedException e)
+		} catch (IOException e)
 		{
 			LogHandler.out(String.format("CopyAction | Couldn't copy: %s to: %s", filePath, newFilePath), LogHandler.ACTION);
 			return new ActionReturn(filePath, false);

@@ -169,7 +169,7 @@ public class Watcher implements Runnable
 				Path child = watchedfolder.folderPath.resolve(name);
 
 				// if directory is AutoFile root directory
-				if (child.toAbsolutePath().equals(config.toAbsolutePath()))
+				if (child.getParent().toAbsolutePath().equals(Paths.get("").toAbsolutePath()))
 				{
 					// discard events for AutoFile root dir not pertaining to the config
 					// file

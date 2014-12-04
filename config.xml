@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- config.xml -->
-<config frequency="90">
+<config frequency="60">
 	<actionsets>
 		<actionset>
 			<name>movetoimages</name>
@@ -19,7 +19,7 @@
 			<name>copytodocuments</name>
 			<actions>
 				<action>
-					<kind>copy</kind>
+					<kind>move</kind>
 					<destination>c:/documents/</destination>
 				</action>
 			</actions>
@@ -52,8 +52,24 @@
 				</ruleset>
 			</rulesets>
 		</folder>
+		<folder>
+			<path>C:\Users\ab\Downloads</path>
+			<rulesets>
+				<ruleset>
+					<matchsetname>pdf</matchsetname>
+					<actionsetname>copytodocuments</actionsetname>
+				</ruleset>
+			</rulesets>
+		</folder>
 	</folders>
 	<matchsets>
+		<matchset>
+			<name>pdf</name>
+			<match>
+				<kind>extension</kind>
+				<extension>.exe</extension>
+			</match>
+		</matchset>
 		<matchset>
 			<name>imagesregex</name>
 			<match>
