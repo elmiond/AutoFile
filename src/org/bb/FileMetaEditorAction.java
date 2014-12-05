@@ -14,90 +14,88 @@ import java.util.Date;
 import org.bb.OSValidator;
 import org.bb.ActionReturn;
 
-public class FileMetaEditorAction {
-	public Path destination;
+public class FileMetaEditorAction implements Action
+{
 	public String action;
 	public Date date;
 	public boolean value;
 
-	public FileMetaEditorAction(Path destination, String action, Date time) {
-		super();
-		this.destination = destination;
+	public FileMetaEditorAction(String action, Date time, boolean value) {
+		//super();
 		this.action = action;
 		this.date = time;
-	}
-
-	public FileMetaEditorAction(Path destination, String action, boolean value) {
-		super();
-		this.destination = destination;
-		this.action = action;
-		this.date = null;
 		this.value = value;
 	}
 
-	public ActionReturn doWork(Path destination) {
+	/*public FileMetaEditorAction(String action, boolean value) {
+		//super();
+		this.action = action;
+		this.value = value;
+	}*/
+
+	public ActionReturn doWork(Path filePath) {
 		if (action.equals("creationTime")) {
 			/* Change Created Time Stamp */
 			try {
-				Files.setAttribute(destination, "basic:creationTime",
+				Files.setAttribute(filePath, "basic:creationTime",
 						FileTime.fromMillis(date.getTime()), NOFOLLOW_LINKS);
 			} catch (IOException e) {
-				return new ActionReturn(destination, false);
+				return new ActionReturn(filePath, false);
 			}
-			return new ActionReturn(destination, true);
+			return new ActionReturn(filePath, true);
 		} else if (action.equals("lastModifiedTime")) {
 			/* Change Created Time Stamp */
 			try {
-				Files.setAttribute(destination, "basic:lastModifiedTime",
+				Files.setAttribute(filePath, "basic:lastModifiedTime",
 						FileTime.fromMillis(date.getTime()), NOFOLLOW_LINKS);
 			} catch (IOException e) {
-				return new ActionReturn(destination, false);
+				return new ActionReturn(filePath, false);
 			}
-			return new ActionReturn(destination, true);
+			return new ActionReturn(filePath, true);
 		} else if (action.equals("lastAccessTime")) {
 			/* Change Created Time Stamp */
 			try {
-				Files.setAttribute(destination, "basic:lastAccessTime",
+				Files.setAttribute(filePath, "basic:lastAccessTime",
 						FileTime.fromMillis(date.getTime()), NOFOLLOW_LINKS);
 			} catch (IOException e) {
-				return new ActionReturn(destination, false);
+				return new ActionReturn(filePath, false);
 			}
-			return new ActionReturn(destination, true);
+			return new ActionReturn(filePath, true);
 		} else if (action.equals("hidden")) {
 			/* Change windows attribute to hidden */
 			try {
 				if (OSValidator.isWindows())
-					Files.setAttribute(destination, "dos:hidden", value);
+					Files.setAttribute(filePath, "dos:hidden", value);
 				else { /* Change other filesystems to hidden */
-					if (!Files.isDirectory(destination)) {
-						if (value && !destination.getFileName().startsWith(".")) {
-							Path newPath = Paths.get((destination.getParent()
-									+ "." + destination.getFileName())
+					if (!Files.isDirectory(filePath)) {
+						if (value && !filePath.getFileName().startsWith(".")) {
+							Path newPath = Paths.get((filePath.getParent()
+									+ "." + filePath.getFileName())
 									.toString());
-							Files.move(destination, newPath, REPLACE_EXISTING,
+							Files.move(filePath, newPath, REPLACE_EXISTING,
 									COPY_ATTRIBUTES);
 						} else if (!value
-								&& destination.getFileName().startsWith(".")) {
+								&& filePath.getFileName().startsWith(".")) {
 							Path newPath = Paths
-									.get((destination.getParent() + destination
+									.get((filePath.getParent() + filePath
 											.getFileName().toString()
 											.substring(1)).toString());
-							Files.move(destination, newPath, REPLACE_EXISTING,
+							Files.move(filePath, newPath, REPLACE_EXISTING,
 									COPY_ATTRIBUTES);
 						}
 					}
 				}
 			} catch (IOException e) {
-				return new ActionReturn(destination, false);
+				return new ActionReturn(filePath, false);
 			}
-			return new ActionReturn(destination, true);
+			return new ActionReturn(filePath, true);
 		} else if (action.equals("protected")) {
 			try {
-				Files.setAttribute(destination, "dos:readonly", value);
+				Files.setAttribute(filePath, "dos:readonly", value);
 			} catch (IOException e) {
-				return new ActionReturn(destination, false);
+				return new ActionReturn(filePath, false);
 			}
 		}
-		return new ActionReturn(destination, true);
+		return new ActionReturn(filePath, true);
 	}
 }

@@ -24,7 +24,7 @@ public class PackagerAction implements Action {
 	 * @see org.bb.Action
 	 */
 	public PackagerAction(Path destination) {
-		super();
+		//super();
 		this.output = destination;
 		LogHandler.out(String.format("Add | PackagerAction | Destination: %s | compressionlevel: Default",
 				destination), LogHandler.INFO);
