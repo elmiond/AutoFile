@@ -12,8 +12,10 @@ import java.util.Calendar;
  * @since 2014-11-28
  * @see org.bb.RuleSet
  */
-public class WatchedFolder
+public class WatchedFolder extends Thread
 {
+	private ArrayList<Path> paths;
+	Thread t;
 	/**
 	 * path to the watched folder.
 	 */
@@ -37,6 +39,8 @@ public class WatchedFolder
 	{
 		this.folderPath = folderPath;
 		this.ruleSets = ruleSets;
+		paths = new ArrayList<Path>();
+		t = new Thread(this);
 	}
 
 	/**
@@ -47,28 +51,42 @@ public class WatchedFolder
 	 */
 	public void doWork(Path path)
 	{
-		try
+		this.paths.add(path);
+		if (!t.isAlive())
 		{
-			while (Calendar.getInstance().getTimeInMillis() < path.toFile()
-					.lastModified() + 2000L || path.toFile().length() < 1)
-			{
-				if (!path.toFile().exists())
-				{
-					break;
-				}
-				Thread.sleep(100);
-			}
-			Thread.sleep(100);
-		} catch (InterruptedException e)
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			t = new Thread(this);
+			t.start();
 		}
-		if (path.toFile().exists())
+	}
+
+	public void run()
+	{
+		while (paths.size() > 0)
 		{
-			for (RuleSet ruleSet : ruleSets)
+			ArrayList<Path> temp = new ArrayList<Path>();
+			temp.addAll(paths);
+			for (Path path : temp)
 			{
-				ruleSet.doWork(path);
+				if (Calendar.getInstance().getTimeInMillis() > path.toFile()
+						.lastModified() + 2000L && path.toFile().length() > 0)
+				{
+					if (path.toFile().exists())
+					{
+						for (RuleSet ruleSet : ruleSets)
+						{
+							ruleSet.doWork(path);
+						}
+					}
+					paths.remove(path);
+				}
+			}
+			try
+			{
+				Thread.sleep(100);
+			} catch (InterruptedException e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 		}
 	}
