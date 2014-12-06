@@ -5,11 +5,13 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.zip.Deflater;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
-public class PackagerAction implements Action {
+public class PackagerAction implements Action
+{
 	/**
 	 * destination to put the zipfile in and the compressionlevel.
 	 */
@@ -20,20 +22,23 @@ public class PackagerAction implements Action {
 	 * Constructor.
 	 * 
 	 * @param destination
-	 *            destination to put the zipfile in
+	 *          destination to put the zipfile in
 	 * @see org.bb.Action
 	 */
-	public PackagerAction(Path destination) {
-		//super();
+	public PackagerAction(Path destination)
+	{
 		this.output = destination;
-		LogHandler.out(String.format("Add | PackagerAction | Destination: %s | compressionlevel: Default",
+		LogHandler.out(String.format(
+				"Add | PackagerAction | Destination: %s | compressionlevel: Default",
 				destination), LogHandler.INFO);
 	}
-	public PackagerAction(Path destination, int compressionlevel) {
-		super();
+
+	public PackagerAction(Path destination, int compressionlevel)
+	{
 		this.output = destination;
 		this.compressionlevel = compressionlevel;
-		LogHandler.out(String.format("Add | PackagerAction | Destination: %s | compressionlevel: %s",
+		LogHandler.out(String.format(
+				"Add | PackagerAction | Destination: %s | compressionlevel: %s",
 				destination, compressionlevel), LogHandler.INFO);
 	}
 
@@ -41,42 +46,58 @@ public class PackagerAction implements Action {
 	 * Copies the file to the configured destination.
 	 * 
 	 * @param filePath
-	 *            Path of file to run operation on
+	 *          Path of file to run operation on
 	 * @return Path to the zip and whether operation was a success
-	 * @throws IOException 
+	 * @throws IOException
 	 */
-	public ActionReturn doWork(Path filePath) {
-		return new ActionReturn(output, packZip(output.toFile(), filePath.toFile(), compressionlevel));
+	public ActionReturn doWork(Path filePath)
+	{
+		output = Paths.get(VarHandler.replace(output.toString(), filePath));
+		output.getParent().toFile().mkdirs();
+		return new ActionReturn(output, packZip(output.toFile(), filePath.toFile(),
+				compressionlevel));
 	}
 
-	static boolean packZip(File output, File source, int compressionlevel){
-		try {
-			ZipOutputStream zipOut = new ZipOutputStream(new FileOutputStream(
-					output));
+	static boolean packZip(File output, File source, int compressionlevel)
+	{
+		try
+		{
+			ZipOutputStream zipOut = new ZipOutputStream(new FileOutputStream(output));
 			zipOut.setLevel(compressionlevel);
 			zipFile(zipOut, "", source);
 			zipOut.flush();
 			zipOut.close();
-			LogHandler.out(String.format("PackagerAction | Successfully packed: %s to: %s", source, output), LogHandler.ACTION);
+			LogHandler.out(String.format(
+					"PackagerAction | Successfully packed: %s to: %s", source, output),
+					LogHandler.ACTION);
 			return true;
-		} catch (IOException e) {
-			LogHandler.out(String.format("PackagerAction | Couldn't pack: %s to: %s", source, output), LogHandler.ACTION);
+		} catch (IOException e)
+		{
+			LogHandler.out(String.format("PackagerAction | Couldn't pack: %s to: %s",
+					source, output), LogHandler.ACTION);
 			return false;
 		}
 	}
 
-	private static String buildPath(String path, String file) {
-		if (path == null || path.isEmpty()) {
+	private static String buildPath(String path, String file)
+	{
+		if (path == null || path.isEmpty())
+		{
 			return file;
-		} else {
+		} else
+		{
 			return path + "/" + file;
 		}
 	}
 
 	private static void zipFile(ZipOutputStream zos, String path, File file)
-			throws IOException {
-		if (!file.canRead()) {
-			LogHandler.out(String.format("PackagerAction | Couldn't read file: %s", (path + file.getName())), LogHandler.ACTION);
+			throws IOException
+	{
+		if (!file.canRead())
+		{
+			LogHandler.out(
+					String.format("PackagerAction | Couldn't read file: %s",
+							(path + file.getName())), LogHandler.ACTION);
 			return;
 		}
 		zos.putNextEntry(new ZipEntry(buildPath(path, file.getName())));
@@ -85,7 +106,8 @@ public class PackagerAction implements Action {
 
 		byte[] buffer = new byte[4092];
 		int byteCount = 0;
-		while ((byteCount = fis.read(buffer)) != -1) {
+		while ((byteCount = fis.read(buffer)) != -1)
+		{
 			zos.write(buffer, 0, byteCount);
 		}
 

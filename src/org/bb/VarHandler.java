@@ -31,6 +31,7 @@ class VarHandler
 		string = string.replaceAll("AUTOFILE_MONTH", new SimpleDateFormat( "MMM" ).format(now));
 		string = string.replaceAll("AUTOFILE_WEEK", new SimpleDateFormat( "'W'ww" ).format(now));
 		string = string.replaceAll("AUTOFILE_WEEKDAY", new SimpleDateFormat( "EEE" ).format(now));
+		string = string.replaceAll("AUTOFILE_DAY", new SimpleDateFormat( "dd" ).format(now));
 		string = string.replaceAll("AUTOFILE_DATE", new SimpleDateFormat( "yyyy.MM.dd" ).format(now));
 		
 		return string;

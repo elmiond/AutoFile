@@ -8,6 +8,7 @@ import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
@@ -36,7 +37,6 @@ public class MoveAction implements Action
 	 */
 	public MoveAction(Path destination)
 	{
-		super();
 		this.destination = destination;
 		LogHandler.out(
 				String.format("Add | MoveAction | Destination: %s", destination),
@@ -52,6 +52,7 @@ public class MoveAction implements Action
 	 */
 	public ActionReturn doWork(Path filePath)
 	{
+		destination = Paths.get(VarHandler.replace(destination.toString(), filePath));
 		Path newFilePath = destination.resolve(filePath.getFileName());
 		try
 		{

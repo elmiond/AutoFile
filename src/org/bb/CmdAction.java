@@ -26,7 +26,6 @@ public class CmdAction implements Action
 	 */
 	public CmdAction(String command)
 	{
-		super();
 		this.cmd = command;
 		LogHandler.out(String.format("Add | CommandAction | Command: %s", command), LogHandler.INFO);
 	}

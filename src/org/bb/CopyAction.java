@@ -3,6 +3,7 @@ package org.bb;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 
 /**
  * Action used to copy a file to a new destination.
@@ -25,7 +26,6 @@ public class CopyAction implements Action
 	 */
 	public CopyAction(Path destination)
 	{
-		super();
 		this.destination = destination;
 		LogHandler.out(String.format("Add | CopyAction | Destination: %s", destination), LogHandler.INFO);
 	}
@@ -37,6 +37,8 @@ public class CopyAction implements Action
 	 */
 	public ActionReturn doWork(Path filePath)
 	{
+		destination = Paths.get(VarHandler.replace(destination.toString(), filePath));
+		
 		Path newFilePath = destination.resolve(filePath.getFileName());
 		try
 		{
