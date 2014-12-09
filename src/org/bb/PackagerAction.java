@@ -15,7 +15,7 @@ public class PackagerAction implements Action
 	/**
 	 * destination to put the zipfile in and the compressionlevel.
 	 */
-	public Path output;
+	public Path destination;
 	public int compressionlevel = Deflater.DEFAULT_COMPRESSION;
 
 	/**
@@ -27,7 +27,7 @@ public class PackagerAction implements Action
 	 */
 	public PackagerAction(Path destination)
 	{
-		this.output = destination;
+		this.destination = destination;
 		LogHandler.out(String.format(
 				"Add | PackagerAction | Destination: %s | compressionlevel: Default",
 				destination), LogHandler.INFO);
@@ -35,7 +35,7 @@ public class PackagerAction implements Action
 
 	public PackagerAction(Path destination, int compressionlevel)
 	{
-		this.output = destination;
+		this.destination = destination;
 		this.compressionlevel = compressionlevel;
 		LogHandler.out(String.format(
 				"Add | PackagerAction | Destination: %s | compressionlevel: %s",
@@ -52,9 +52,9 @@ public class PackagerAction implements Action
 	 */
 	public ActionReturn doWork(Path filePath)
 	{
-		output = Paths.get(VarHandler.replace(output.toString(), filePath));
-		output.getParent().toFile().mkdirs();
-		return new ActionReturn(output, packZip(output.toFile(), filePath.toFile(),
+		destination = Paths.get(VarHandler.replace(destination.toString(), filePath));
+		destination.getParent().toFile().mkdirs();
+		return new ActionReturn(destination, packZip(destination.toFile(), filePath.toFile(),
 				compressionlevel));
 	}
 

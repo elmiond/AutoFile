@@ -10,11 +10,7 @@ import java.nio.file.attribute.BasicFileAttributes;
 import org.bb.ActionReturn;
 
 public class DeleteAction {
-	public DeleteAction(Path destination)
-	{
-		super();
-	}
-
+	
 	public ActionReturn doWork(Path filePath)
 	{
 		try
