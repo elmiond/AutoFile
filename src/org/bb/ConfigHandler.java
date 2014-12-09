@@ -136,40 +136,40 @@ final public class ConfigHandler
 
 		switch (kind)
 		{
-			case "or":
-				OrRule orRule = new OrRule();
-				ss = config.getStringArray(xpath + "/matches/match/kind");
-				i = 1;
-				for (String s : ss)
-				{
-					orRule.add(getMatch(xpath + "/matches/match[" + i + "]"));
-					i++;
-				}
-				LogHandler.out("====OrMatchRuleCollection End====", LogHandler.INFO);
-				return orRule;
+		case "or":
+			OrRule orRule = new OrRule();
+			ss = config.getStringArray(xpath + "/matches/match/kind");
+			i = 1;
+			for (String s : ss)
+			{
+				orRule.add(getMatch(xpath + "/matches/match[" + i + "]"));
+				i++;
+			}
+			LogHandler.out("====OrMatchRuleCollection End====", LogHandler.INFO);
+			return orRule;
 
-			case "and":
-				AndRule andRule = new AndRule();
-				ss = config.getStringArray(xpath + "/matches/match/kind");
-				i = 1;
-				for (String s : ss)
-				{
-					andRule.add(getMatch(xpath + "/matches/match[" + i + "]"));
-					i++;
-				}
-				LogHandler.out("====AndMatchRuleCollection End====", LogHandler.INFO);
-				return andRule;
+		case "and":
+			AndRule andRule = new AndRule();
+			ss = config.getStringArray(xpath + "/matches/match/kind");
+			i = 1;
+			for (String s : ss)
+			{
+				andRule.add(getMatch(xpath + "/matches/match[" + i + "]"));
+				i++;
+			}
+			LogHandler.out("====AndMatchRuleCollection End====", LogHandler.INFO);
+			return andRule;
 
-			case "regex":
-				String pattern = config.getString(xpath + "/pattern");
-				return new RegexMatchRule(pattern);
+		case "regex":
+			String pattern = config.getString(xpath + "/pattern");
+			return new RegexMatchRule(pattern);
 
-			case "extension":
-				String extension = config.getString(xpath + "/extension");
-				return new ExtensionMatchRule(extension);
+		case "extension":
+			String extension = config.getString(xpath + "/extension");
+			return new ExtensionMatchRule(extension);
 
-			default:
-				return new RegexMatchRule("");
+		default:
+			return new RegexMatchRule("");
 		}
 	}
 
@@ -212,59 +212,63 @@ final public class ConfigHandler
 		// TODO streamline method akin to what exists in Configeditor project
 		switch (kind)
 		{
-			case "move":
-				return new MoveAction(Paths.get(config
-						.getString("actionsets/actionset[name = '" + name
-								+ "']/actions/action[" + index + "]/destination")));
+		case "move":
+			return new MoveAction(Paths.get(config
+					.getString("actionsets/actionset[name = '" + name
+							+ "']/actions/action[" + index + "]/destination")));
 
-			case "copy":
-				return new CopyAction(Paths.get(config
-						.getString("actionsets/actionset[name = '" + name
-								+ "']/actions/action[" + index + "]/destination")));
+		case "copy":
+			return new CopyAction(Paths.get(config
+					.getString("actionsets/actionset[name = '" + name
+							+ "']/actions/action[" + index + "]/destination")));
 
-			case "cmd":
-				return new CmdAction(config.getString("actionsets/actionset[name = '"
-						+ name + "']/actions/action[" + index + "]/command"));
+		case "cmd":
+			return new CmdAction(config.getString("actionsets/actionset[name = '"
+					+ name + "']/actions/action[" + index + "]/command"));
 
-			case "unpack":
-				return new UnpackAction();
+		case "unpack":
+			return new UnpackAction();
 
-			case "package":
-				int compression = 0;
-				try{
+		case "package":
+			int compression = 0;
+			try
+			{
 				compression = Integer.parseInt(config
 						.getString("actionsets/actionset[name = '" + name
 								+ "']/actions/action[" + index + "]/compression"));
-				} catch (NumberFormatException e){
-					return new PackagerAction(Paths.get(
-							config.getString("actionsets/actionset[name = '" + name
-									+ "']/actions/action[" + index + "]/destination")));
-				}
-				return new PackagerAction(Paths.get(
-						config.getString("actionsets/actionset[name = '" + name
-								+ "']/actions/action[" + index + "]/destination")), compression);
-
-			case "meta":
-				String action = config.getString("actionsets/actionset[name = '" + name
-						+ "']/actions/action[" + index + "]/tag");
-				SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
-				Date time;
-				try
-				{
-					time = formatter.parse(config
-							.getString("actionsets/actionset[name = '" + name
-									+ "']/actions/action[" + index + "]/date"));
-				} catch (ParseException e)
-				{
-					time = new Date();
-				}
-				boolean value = Boolean.parseBoolean(config
+			} catch (NumberFormatException e)
+			{
+				return new PackagerAction(Paths.get(config
 						.getString("actionsets/actionset[name = '" + name
-								+ "']/actions/action[" + index + "]/value"));
-				return new FileMetaEditorAction(action, time, value);
+								+ "']/actions/action[" + index + "]/destination")));
+			}
+			return new PackagerAction(Paths.get(config
+					.getString("actionsets/actionset[name = '" + name
+							+ "']/actions/action[" + index + "]/destination")), compression);
 
-			default:
-				return new UnpackAction();
+		case "meta":
+			String action = config.getString("actionsets/actionset[name = '" + name
+					+ "']/actions/action[" + index + "]/tag");
+			SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
+			Date time;
+			try
+			{
+				time = formatter.parse(config.getString("actionsets/actionset[name = '"
+						+ name + "']/actions/action[" + index + "]/date"));
+			} catch (ParseException e)
+			{
+				time = new Date();
+			}
+			boolean value = Boolean.parseBoolean(config
+					.getString("actionsets/actionset[name = '" + name
+							+ "']/actions/action[" + index + "]/value"));
+			return new FileMetaEditorAction(action, time, value);
+
+		case "delete":
+			return new DeleteAction();
+
+		default:
+			return new UnpackAction();
 		}
 	}
 
