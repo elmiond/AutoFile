@@ -14,25 +14,52 @@ import java.util.Date;
 import org.bb.OSValidator;
 import org.bb.ActionReturn;
 
+/**
+ * Edits a files meta data.
+ * @author      Morten Bondo	<Bondo.Morten@gmail.com>
+ * @version     1.0
+ * @since       2014-12-10
+ * @see					org.bb.Action
+ */
 public class FileMetaEditorAction implements Action
 {
+	/**
+	 * which metatag to change.
+	 */
 	public String action;
+	/**
+	 * Timestamp.
+	 */
 	public Date date;
+	/**
+	 * true/false.
+	 */
 	public boolean value;
 
+	/**
+	 * Constructor.
+	 * 
+	 * @param action
+	 *          which metatag to change
+	 * @param time
+	 *          timestamp
+	 * @param value
+	 *          true/false
+	 */
 	public FileMetaEditorAction(String action, Date time, boolean value) {
-		//super();
 		this.action = action;
 		this.date = time;
 		this.value = value;
 	}
 
-	/*public FileMetaEditorAction(String action, boolean value) {
-		//super();
-		this.action = action;
-		this.value = value;
-	}*/
-
+	/**
+	 * Edits the file.
+	 * 
+	 * @param filePath
+	 *          Path of the file to edit
+	 * @return Path to the file and whether operation was a success
+	 * @see org.bb.Action
+	 */
 	public ActionReturn doWork(Path filePath) {
 		if (action.equals("creationTime")) {
 			/* Change Created Time Stamp */

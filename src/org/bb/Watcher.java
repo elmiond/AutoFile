@@ -276,6 +276,12 @@ public class Watcher implements Runnable
 		fullRun(true);
 	}
 
+	/**
+	 * Register the given directory with the WatchService.
+	 * 
+	 * @param forceRun
+	 *          Whether to override the frequency and force a run or not.
+	 */
 	public void fullRun(boolean forceRun)
 	{
 		if (forceRun || counter >= frequency)
@@ -311,6 +317,13 @@ public class Watcher implements Runnable
 		}
 	}
 
+	/**
+	 * Gets all files in Path.
+	 * 
+	 * @param path
+	 *          Path to the watched folder
+	 * @return Paths of all files in path
+	 */
 	private ArrayList<Path> listFiles(Path path) throws IOException
 	{
 		ArrayList<Path> files = new ArrayList<Path>();

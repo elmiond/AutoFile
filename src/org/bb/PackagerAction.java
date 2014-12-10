@@ -10,12 +10,22 @@ import java.util.zip.Deflater;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
+/**
+ * Action that compresses file into an archive.
+ * @author      Morten Bondo	<Bondo.Morten@gmail.com>
+ * @version     1.0
+ * @since       2014-12-10
+ * @see					org.bb.Action
+ */
 public class PackagerAction implements Action
 {
 	/**
-	 * destination to put the zipfile in and the compressionlevel.
+	 * destination to put the zipfile.
 	 */
 	public Path destination;
+	/**
+	 * the compressionlevel.
+	 */
 	public int compressionlevel = Deflater.DEFAULT_COMPRESSION;
 
 	/**
@@ -33,6 +43,15 @@ public class PackagerAction implements Action
 				destination), LogHandler.INFO);
 	}
 
+	/**
+	 * Constructor.
+	 * 
+	 * @param destination
+	 *          destination to put the zipfile in
+	 * @param compressionlevel
+	 *          compression level
+	 * @see org.bb.Action
+	 */
 	public PackagerAction(Path destination, int compressionlevel)
 	{
 		this.destination = destination;
@@ -43,7 +62,7 @@ public class PackagerAction implements Action
 	}
 
 	/**
-	 * Copies the file to the configured destination.
+	 * Compresses the file to the configured destination.
 	 * 
 	 * @param filePath
 	 *          Path of file to run operation on
@@ -58,6 +77,17 @@ public class PackagerAction implements Action
 				compressionlevel));
 	}
 
+	/**
+	 * Packs as zip.
+	 * 
+	 * @param output
+	 *          where to put the file
+	 * @param source
+	 *          Path of file to run operation on
+	 * @param compressionlevel
+	 *          compression level
+	 * @return whether operation was a success
+	 */
 	static boolean packZip(File output, File source, int compressionlevel)
 	{
 		try
@@ -79,6 +109,15 @@ public class PackagerAction implements Action
 		}
 	}
 
+	/**
+	 * Builds destination string.
+	 * 
+	 * @param path
+	 *          filepath
+	 * @param file
+	 *          filename
+	 * @return destination string
+	 */
 	private static String buildPath(String path, String file)
 	{
 		if (path == null || path.isEmpty())
@@ -89,7 +128,17 @@ public class PackagerAction implements Action
 			return path + "/" + file;
 		}
 	}
-
+	/**
+	 * Compresses using zip.
+	 * 
+	 * @param zos
+	 *          ZipOutputStream to compress through
+	 * @param path
+	 *          filepath
+	 * @param file
+	 *          filename
+	 * @throws IOException
+	 */
 	private static void zipFile(ZipOutputStream zos, String path, File file)
 			throws IOException
 	{

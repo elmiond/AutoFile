@@ -1,5 +1,11 @@
 package org.bb;
 
+/**
+ * Determines OS architecture.
+ * @author      Morten Bondo	<Bondo.Morten@gmail.com>
+ * @version     1.0
+ * @since       2014-12-10
+ */
 public class OSValidator {
 
     private static String OS = System.getProperty("os.name").toLowerCase();

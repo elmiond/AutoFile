@@ -7,6 +7,12 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+/**
+ * Handles all interactions with the logfiles.
+ * @author      Ask Bisgaard	<Elmiond@gmail.com>
+ * @version     1.0
+ * @since       2014-11-28
+ */
 public final class LogHandler
 {
 	public static final int MATCH = 0;
@@ -18,6 +24,11 @@ public final class LogHandler
 	private static final String eventLog = "events.log";
 	private static final String errorLog = "errors.log";
 
+	/**
+	 * Writes to log.
+	 * @param	message	message
+	 * @param	kind	type of log
+	 */
 	public static void out(String message, int kind)
 	{
 		PrintWriter writer;
@@ -78,6 +89,10 @@ public final class LogHandler
 		}
 	}
 
+	/**
+	 * Creates a new logfile if it does not already exist.
+	 * @param	file	file
+	 */
 	private static void checkFile(String file)
 	{
 

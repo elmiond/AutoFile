@@ -9,9 +9,22 @@ import java.nio.file.attribute.BasicFileAttributes;
 
 import org.bb.ActionReturn;
 
+/**
+ * Action that deletes the file.
+ * @author      Morten Bondo	<Bondo.Morten@gmail.com>
+ * @version     1.0
+ * @since       2014-12-10
+ * @see					org.bb.Action
+ */
 public class DeleteAction implements Action
 {
-
+	/**
+	 * Deletes the file.
+	 * 
+	 * @param filePath
+	 *          Path of file to run operation on
+	 * @return Path to the file and whether operation was a success
+	 */
 	public ActionReturn doWork(Path filePath)
 	{
 		try

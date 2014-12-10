@@ -58,7 +58,10 @@ public class WatchedFolder extends Thread
 			t.start();
 		}
 	}
-
+	
+	/**
+	 * Asynchronously process all events queued by the watcher
+	 */
 	public void run()
 	{
 		while (paths.size() > 0)

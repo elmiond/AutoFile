@@ -7,9 +7,22 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.zip.*;
 
+/**
+ * Action that uncompresses file.
+ * @author      Morten Bondo	<Bondo.Morten@gmail.com>
+ * @version     1.0
+ * @since       2014-12-10
+ * @see					org.bb.Action
+ */
 public class UnpackAction implements Action
 {
-
+	/**
+	 * Unpacks the file.
+	 * 
+	 * @param filePath
+	 *          Path of file to run operation on
+	 * @return Path to the file and whether operation was a success
+	 */
 	@Override
 	public ActionReturn doWork(Path filePath)
 	{
@@ -35,7 +48,13 @@ public class UnpackAction implements Action
 		return new ActionReturn(filePath, false);
 
 	}
-
+	/**
+	 * Gets all files in folder.
+	 * 
+	 * @param folder
+	 *          Path to the folder
+	 * @return files in folder
+	 */
 	public File[] listFilesForFolder(final File folder)
 	{
 		File[] filelist = folder.listFiles();
@@ -43,6 +62,13 @@ public class UnpackAction implements Action
 
 	}
 
+	/**
+	 * Gets file extension.
+	 * 
+	 * @param file
+	 *          Path of file to extension of
+	 * @return File extension
+	 */
 	private String getFileExtension(File file)
 	{
 		String name = file.getName();
@@ -54,6 +80,15 @@ public class UnpackAction implements Action
 		return name.substring(lastIndexOf);
 	}
 
+	/**
+	 * Unpacks the file.
+	 * 
+	 * @param zipFile
+	 *          file to unpack
+	 * @param outputFolder
+	 *          Where to upack to
+	 * @return Whether operation was a success
+	 */
 	private boolean unZip(String zipFile, String outputFolder)
 	{
 		try
